@@ -1,0 +1,67 @@
+﻿@using Filminurk_Mikk_Kivisild_TARpe24.Models.Movies
+
+@model Filminurk_Mikk_Kivisild_TARpe24.Models.Movies.MoviesCreateViewModel
+
+<h1>Lisa Firm</h1>
+<div>
+	<form method="post" enctype="multipart/form-data">
+		<input asp-for="ID" type="hidden"/>
+		<input asp-for="EntryCreatedAt" type="hidden"/>
+		<input asp-for="EntryModifiedAt" type="hidden" />
+
+		<div class="form-group row">
+			<label asp-for="Title" class="col-sm-2 col-form-label"></label>
+			<div class="col-sm-10">
+				<input asp-for="Title" class="form-control" />
+			</div>
+		</div>
+        <div class="form-group row">
+            <label asp-for="Description" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Title" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="FirstPublished" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Title" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="Director" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Title" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="CurrentRating" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Title" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Seasons" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Title" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="LastPublished" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Title" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Fish" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Title" class="form-control" />
+            </div>
+        </div>
+
+        <input asp-action="Create" asp-controller="Movies" type="submit" class="btn btn-primary" value="Create" />
+
+	</form>
+</div>
