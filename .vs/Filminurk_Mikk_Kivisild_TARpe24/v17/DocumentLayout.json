@@ -1,0 +1,152 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\opilane\\source\\repos\\Kristen Hallingu\\Tsyklid\\Filminurk_Mikk_Kivisild_TARpe24\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4648C173-37C5-4FDB-B27C-4E912C90BF29}|..\\ApplicationServices\\ApplicationServices.csproj|c:\\users\\opilane\\source\\repos\\kristen hallingu\\tsyklid\\applicationservices\\services\\movieservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D7750EE-AC14-490F-8F44-CFDC4D56BDF9}|..\\Core\\Core.csproj|c:\\users\\opilane\\source\\repos\\kristen hallingu\\tsyklid\\core\\domain\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D7750EE-AC14-490F-8F44-CFDC4D56BDF9}|..\\Core\\Core.csproj|c:\\users\\opilane\\source\\repos\\kristen hallingu\\tsyklid\\core\\serviceinterface\\imovieservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D7750EE-AC14-490F-8F44-CFDC4D56BDF9}|..\\Core\\Core.csproj|c:\\users\\opilane\\source\\repos\\kristen hallingu\\tsyklid\\core\\dto\\moviesdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{980BBBD2-0DDF-490E-9A7A-8587A0306600}|Filminurk_Mikk_Kivisild_TARpe24.csproj|c:\\users\\opilane\\source\\repos\\kristen hallingu\\tsyklid\\filminurk_mikk_kivisild_tarpe24\\controllers\\moviescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{980BBBD2-0DDF-490E-9A7A-8587A0306600}|Filminurk_Mikk_Kivisild_TARpe24.csproj|solutionrelative:controllers\\moviescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{980BBBD2-0DDF-490E-9A7A-8587A0306600}|Filminurk_Mikk_Kivisild_TARpe24.csproj|c:\\users\\opilane\\source\\repos\\kristen hallingu\\tsyklid\\filminurk_mikk_kivisild_tarpe24\\models\\movies\\moviesindexviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{980BBBD2-0DDF-490E-9A7A-8587A0306600}|Filminurk_Mikk_Kivisild_TARpe24.csproj|solutionrelative:models\\movies\\moviesindexviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{980BBBD2-0DDF-490E-9A7A-8587A0306600}|Filminurk_Mikk_Kivisild_TARpe24.csproj|c:\\users\\opilane\\source\\repos\\kristen hallingu\\tsyklid\\filminurk_mikk_kivisild_tarpe24\\models\\movies\\moviescreateviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{980BBBD2-0DDF-490E-9A7A-8587A0306600}|Filminurk_Mikk_Kivisild_TARpe24.csproj|solutionrelative:models\\movies\\moviescreateviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{980BBBD2-0DDF-490E-9A7A-8587A0306600}|Filminurk_Mikk_Kivisild_TARpe24.csproj|c:\\users\\opilane\\source\\repos\\kristen hallingu\\tsyklid\\filminurk_mikk_kivisild_tarpe24\\models\\movies\\moviedeleteviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{980BBBD2-0DDF-490E-9A7A-8587A0306600}|Filminurk_Mikk_Kivisild_TARpe24.csproj|solutionrelative:models\\movies\\moviedeleteviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Movie.cs",
+              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\Kristen Hallingu\\Tsyklid\\Core\\Domain\\Movie.cs",
+              "RelativeDocumentMoniker": "..\\Core\\Domain\\Movie.cs",
+              "ToolTip": "C:\\Users\\opilane\\source\\repos\\Kristen Hallingu\\Tsyklid\\Core\\Domain\\Movie.cs",
+              "RelativeToolTip": "..\\Core\\Domain\\Movie.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-14T12:00:02.475Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MoviesCreateViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\Kristen Hallingu\\Tsyklid\\Filminurk_Mikk_Kivisild_TARpe24\\Models\\Movies\\MoviesCreateViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\Movies\\MoviesCreateViewModel.cs",
+              "ToolTip": "C:\\Users\\opilane\\source\\repos\\Kristen Hallingu\\Tsyklid\\Filminurk_Mikk_Kivisild_TARpe24\\Models\\Movies\\MoviesCreateViewModel.cs",
+              "RelativeToolTip": "Models\\Movies\\MoviesCreateViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-14T11:59:52.959Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MovieDeleteViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\Kristen Hallingu\\Tsyklid\\Filminurk_Mikk_Kivisild_TARpe24\\Models\\Movies\\MovieDeleteViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\Movies\\MovieDeleteViewModel.cs",
+              "ToolTip": "C:\\Users\\opilane\\source\\repos\\Kristen Hallingu\\Tsyklid\\Filminurk_Mikk_Kivisild_TARpe24\\Models\\Movies\\MovieDeleteViewModel.cs",
+              "RelativeToolTip": "Models\\Movies\\MovieDeleteViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-14T11:59:51.252Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IMovieServices.cs",
+              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\Kristen Hallingu\\Tsyklid\\Core\\ServiceInterface\\IMovieServices.cs",
+              "RelativeDocumentMoniker": "..\\Core\\ServiceInterface\\IMovieServices.cs",
+              "ToolTip": "C:\\Users\\opilane\\source\\repos\\Kristen Hallingu\\Tsyklid\\Core\\ServiceInterface\\IMovieServices.cs",
+              "RelativeToolTip": "..\\Core\\ServiceInterface\\IMovieServices.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-14T11:59:03.994Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MoviesController.cs",
+              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\Kristen Hallingu\\Tsyklid\\Filminurk_Mikk_Kivisild_TARpe24\\Controllers\\MoviesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\MoviesController.cs",
+              "ToolTip": "C:\\Users\\opilane\\source\\repos\\Kristen Hallingu\\Tsyklid\\Filminurk_Mikk_Kivisild_TARpe24\\Controllers\\MoviesController.cs",
+              "RelativeToolTip": "Controllers\\MoviesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAlwAwAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-14T11:55:34.114Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MoviesIndexViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\Kristen Hallingu\\Tsyklid\\Filminurk_Mikk_Kivisild_TARpe24\\Models\\Movies\\MoviesIndexViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\Movies\\MoviesIndexViewModel.cs",
+              "ToolTip": "C:\\Users\\opilane\\source\\repos\\Kristen Hallingu\\Tsyklid\\Filminurk_Mikk_Kivisild_TARpe24\\Models\\Movies\\MoviesIndexViewModel.cs",
+              "RelativeToolTip": "Models\\Movies\\MoviesIndexViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-14T11:54:31.338Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MoviesDTO.cs",
+              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\Kristen Hallingu\\Tsyklid\\Core\\Dto\\MoviesDTO.cs",
+              "RelativeDocumentMoniker": "..\\Core\\Dto\\MoviesDTO.cs",
+              "ToolTip": "C:\\Users\\opilane\\source\\repos\\Kristen Hallingu\\Tsyklid\\Core\\Dto\\MoviesDTO.cs",
+              "RelativeToolTip": "..\\Core\\Dto\\MoviesDTO.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABcAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-14T11:54:13.313Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MovieServices.cs",
+              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\Kristen Hallingu\\Tsyklid\\ApplicationServices\\Services\\MovieServices.cs",
+              "RelativeDocumentMoniker": "..\\ApplicationServices\\Services\\MovieServices.cs",
+              "ToolTip": "C:\\Users\\opilane\\source\\repos\\Kristen Hallingu\\Tsyklid\\ApplicationServices\\Services\\MovieServices.cs",
+              "RelativeToolTip": "..\\ApplicationServices\\Services\\MovieServices.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAuwBEAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-14T11:53:25.347Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
