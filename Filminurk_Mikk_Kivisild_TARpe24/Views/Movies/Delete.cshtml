@@ -42,4 +42,31 @@
 			@Html.DisplayFor(model => model.CurrentRating)
 		</div>
 	</dl>
-</div>1
+	<dl class="row">
+		<div class="form-group-row">
+			<label asp-for="Seasons" class="col-sm-2 col-form-label"></label>
+			@Html.DisplayFor(model => model.Seasons)
+		</div>
+	</dl>
+	<dl class="row">
+		<div class="form-group-row">
+			<label asp-for="LastPublished" class="col-sm-2 col-form-label"></label>
+			@Html.DisplayFor(model => model.LastPublished)
+		</div>
+	</dl>
+	<dl class="row">
+		<div class="form-group-row">
+			<label asp-for="Fish" class="col-sm-2 col-form-label"></label>
+			@Html.DisplayFor(model => model.Fish)
+		</div>
+	</dl>
+	<hr />
+	<form asp-action="DeleteConfirmation">
+		<input type="hidden"
+			asp-for="ID" />
+		<input type="submit"
+			value="Remove"
+			class="btn btn-danger" />
+		<a asp-action="Index" asp-controller="Movies" class="btn btn-success">Return to list</a>
+	</form>
+</div>

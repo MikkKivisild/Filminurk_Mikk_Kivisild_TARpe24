@@ -20,6 +20,7 @@ namespace Core.Domain
         public int? Seasons { get; set; }
         public DateTime? LastPublished { get; set; }
         public string Fish {  get; set; }
-
+        public DateTime? EntryCreatedAt { get; set; }
+        public DateTime? EntryModifiedAt { get; set; }
     }
 }

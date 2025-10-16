@@ -1,9 +1,11 @@
 ﻿using ApplicationServices.Services;
+using Core.Domain;
 using Core.Dto;
 using Core.ServiceInterface;
 using Data;
 using Filminurk_Mikk_Kivisild_TARpe24.Models.Movies;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
 {
@@ -28,7 +30,7 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
                 Title = vm.Title,
                 FirstPublished = vm.FirstPublished,
                 CurrentRating = vm.CurrentRating,
-                
+
             });
             return View(result);
         }
@@ -36,11 +38,15 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
         public IActionResult Create()
         {
             MoviesCreateViewModel result = new();
-            return View("Create",result);
+            return View("Create", result);
         }
         [HttpPost]
-        public async Task<IActionResult> Create (MoviesCreateViewModel vm)
+        public async Task<IActionResult> Create(MoviesCreateViewModel vm)
         {
+            if (vm == null)
+            {
+                return NotFound();
+            }
             var dto = new MoviesDTO()
             {
                 ID = vm.ID,
@@ -64,5 +70,38 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var movie = await _movieServices.DetailsAsync(id);
+
+            if (movie == null) 
+            {
+                return NotFound();
+            }
+            var vm = new MovieDeleteViewModel();
+            vm.ID = movie.ID;
+            vm.Title = movie.Title;
+            vm.Description = movie.Description;
+            vm.FirstPublished = movie.FirstPublished;
+            vm.Director = movie.Director;
+            vm.Actors = movie.Actors;
+            vm.CurrentRating = movie.CurrentRating;
+            vm.Seasons = movie.Seasons;
+            vm.LastPublished = movie.LastPublished;
+            vm.Fish = movie.Fish;
+            vm.EntryCreatedAt = movie.EntryCreatedAt;
+            vm.EntryModifiedAt = movie.EntryModifiedAt;
+
+            return View(vm);
+        }
+        [HttpPost]
+        public async Task<IActionResult> DeleteConfirmation(Guid id)
+        {
+            var movie = await _movieServices.Delete(id);
+            if(movie == null)
+            {  return NotFound(); }
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
