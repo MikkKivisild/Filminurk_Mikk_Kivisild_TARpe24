@@ -1,8 +1,18 @@
 ﻿@using Filminurk_Mikk_Kivisild_TARpe24.Models.Movies
+@using Core.Domain
 
-@model Filminurk_Mikk_Kivisild_TARpe24.Models.Movies.MoviesCreateViewModel
+@model Filminurk_Mikk_Kivisild_TARpe24.Models.Movies.MoviesCreateUpdateViewModel
 
 <h1>Lisa Firm</h1>
+@if(Model.ID.HasValue)
+{
+    <h1>Muuda Film</h1>
+}
+else
+{
+    <h1>Lisa Film</h1>
+}
+<h1>Muuda Film</h1>
 <div>
 	<form method="post" enctype="multipart/form-data">
 		<input asp-for="ID" type="hidden"/>

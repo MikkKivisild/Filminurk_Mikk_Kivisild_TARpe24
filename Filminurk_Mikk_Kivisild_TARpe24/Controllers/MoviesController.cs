@@ -37,11 +37,11 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            MoviesCreateViewModel result = new();
+            MoviesCreateUpdateViewModel result = new();
             return View("Create", result);
         }
         [HttpPost]
-        public async Task<IActionResult> Create(MoviesCreateViewModel vm)
+        public async Task<IActionResult> Create(MoviesCreateUpdateViewModel vm)
         {
             if (vm == null)
             {
@@ -69,8 +69,32 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
             }
             return RedirectToAction(nameof(Index));
         }
-
         [HttpGet]
+        public async Task<IActionResult> Update(Guid id)
+        {
+            var movie = await _movieServices.DetailsAsync(id);
+            if (movie == null)
+            {
+                return NotFound();
+            }
+            var vm = new MoviesCreateUpdateViewModel();
+            vm.ID = id;
+            vm.Title = vm.Title;
+            vm.Description = vm.Description;
+            vm.FirstPublished = vm.FirstPublished;
+            vm.Director = vm.Director;
+            vm.Actors = vm.Actors;
+            vm.CurrentRating = vm.CurrentRating;
+            vm.Seasons = vm.Seasons;
+            vm.LastPublished = vm.LastPublished;
+            vm.Fish = vm.Fish;
+            vm.EntryCreatedAt = vm.EntryCreatedAt;
+            vm.EntryModifiedAt = movie.EntryModifiedAt;
+
+            return View("CreateUpdate",vm);
+        }
+
+            [HttpGet]
         public async Task<IActionResult> Delete(Guid id)
         {
             var movie = await _movieServices.DetailsAsync(id);
