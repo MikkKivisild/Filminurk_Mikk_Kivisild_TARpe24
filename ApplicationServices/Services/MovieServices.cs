@@ -14,10 +14,12 @@ namespace ApplicationServices.Services
     public class MovieServices : IMovieServices
     {
         private readonly FilminurkTARpe24Context _context;
+        private readonly IFilesServices _filesServices; // Failid
 
-        public MovieServices(FilminurkTARpe24Context context)
+        public MovieServices(FilminurkTARpe24Context context, IFilesServices filesServices) // Failid)
         {
             _context = context;
+            _filesServices = filesServices;// Failid
         }
         public async Task<Movie> Create(MoviesDTO dto)
         {
@@ -33,9 +35,12 @@ namespace ApplicationServices.Services
             movie.Seasons = dto.Seasons;
             movie.LastPublished = dto.LastPublished;
             movie.Fish = dto.Fish;
-            //movie.EntryCreatedAt = DateTime.Now
-            //movie.EntryModifiedAt = DateTime.Now
-            
+            movie.EntryCreatedAt = DateTime.Now;
+            movie.EntryModifiedAt = DateTime.Now;
+            _filesServices.FileToApi(dto, movie);
+
+
+            _context.Movies.Update(movie);
             await _context.AddAsync(movie);
             await _context.SaveChangesAsync();
 
@@ -60,18 +65,32 @@ namespace ApplicationServices.Services
             movie.Seasons = (int)dto.Seasons;
             movie.LastPublished = dto.LastPublished;
             movie.Fish = dto.Fish;
+            movie.EntryCreatedAt = dto.EntryCreatedAt;
+            movie.EntryModifiedAt = DateTime.Now;
+            _filesServices.FileToApi(dto, movie);
+
             await _context.AddAsync(movie);
             await _context.SaveChangesAsync();
             return movie;
 
         }
+
         public async Task<Movie> Delete(Guid id)
         {
 
             var result = await _context.Movies
                 .FirstOrDefaultAsync(m => m.ID == id);
 
+            var images = await _context.FilesToApi
+                .Where(x => x.MovieID == id)
+                .Select(y => new FileToApiDTO
+                {
+                    ImageID = y.ImageID,
+                    MovieID = y.MovieID,
+                    FilePath = y.ExistingFilePath,
+                }).ToArrayAsync();
 
+            await _filesServices.RemoveImagesFromApi(images);
             _context.Movies.Remove(result);
             await _context.SaveChangesAsync();
 

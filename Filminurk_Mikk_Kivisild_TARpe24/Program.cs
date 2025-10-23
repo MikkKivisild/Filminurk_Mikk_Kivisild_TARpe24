@@ -1,3 +1,5 @@
+using ApplicationServices.Services;
+using Core.ServiceInterface;
 using Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -5,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IMovieServices, MovieServices>();
 builder.Services.AddDbContext<FilminurkTARpe24Context>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 var app = builder.Build();
 

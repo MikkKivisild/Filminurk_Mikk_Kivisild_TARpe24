@@ -67,5 +67,13 @@ namespace ApplicationServices.Services
             await _context.SaveChangesAsync();
             return null;
         }
+        Task<FileToApi> IFilesServices.RemoveImagesFromApi(FileToApiDTO[] dtos)
+        {
+            foreach (var dto in dtos)
+            {
+                RemoveImageFromApi(dto);
+            }
+            return null;
+        }
     }
 }
