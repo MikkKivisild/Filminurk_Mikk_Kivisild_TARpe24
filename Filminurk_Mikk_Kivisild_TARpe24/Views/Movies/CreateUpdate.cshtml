@@ -14,17 +14,17 @@ else
 }
 <h1>Muuda Film</h1>
 <div>
-	<form method="post" enctype="multipart/form-data">
-		<input asp-for="ID" type="hidden"/>
-		<input asp-for="EntryCreatedAt" type="hidden"/>
-		<input asp-for="EntryModifiedAt" type="hidden" />
+    <form method="post" enctype="multipart/form-data">
+        <input asp-for="ID" type="hidden"/>
+        <input asp-for="EntryCreatedAt" type="hidden"/>
+        <input asp-for="EntryModifiedAt" type="hidden" />
 
-		<div class="form-group row">
-			<label asp-for="Title" class="col-sm-2 col-form-label"></label>
-			<div class="col-sm-10">
-				<input asp-for="Title" class="form-control" />
-			</div>
-		</div>
+        <div class="form-group row">
+            <label asp-for="Title" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Title" class="form-control" />
+            </div>
+        </div>
         <div class="form-group row">
             <label asp-for="Description" class="col-sm-2 col-form-label"></label>
             <div class="col-sm-10">
@@ -71,7 +71,21 @@ else
             </div>
         </div>
 
-        <input asp-action="Create" asp-controller="Movies" type="submit" class="btn btn-primary" value="Create" />
+        @foreach(var images in Model.Images)
+        {
+            <partial name="_Images" model="Images"/>
+            <input asp-action="removeImage" asp-controller="Movies" asp-route-ImageID="@images.ImageID" type="submit"
+            class="btn btn-success" value="Eemalda see pilt"/>
+        }
+        @if (Model.ID.HasValue)
+        {
+            <input asp-action="Update" asp-controller="Movies" type="submit" class="btn btn-primary" value="Update" />
+        }
+        else
+        {
+            <input asp-action="Create" asp-controller="Movies" type="submit" class="btn btn-primary" value="Create" />
+        }
+        <input asp-action="Index" asp-controller="Movies" type="submit" class="btn btn-primary" value="Back" />
 
 	</form>
 </div>
