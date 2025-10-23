@@ -10,6 +10,10 @@
         public List<string> Actors { get; set; }
         public Double? CurrentRating { get; set; }
 
+        /*Kassolevate piltide andmeomadused*/
+        public List<ImageViewModel> Images { get; set; } = new List<ImageViewModel>();
+
+
         // minu andme tüübid
         public int? Seasons { get; set; }
         public DateTime? LastPublished { get; set; }
