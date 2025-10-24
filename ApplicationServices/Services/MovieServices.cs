@@ -40,7 +40,6 @@ namespace ApplicationServices.Services
             _filesServices.FileToApi(dto, movie);
 
 
-            _context.Movies.Update(movie);
             await _context.AddAsync(movie);
             await _context.SaveChangesAsync();
 

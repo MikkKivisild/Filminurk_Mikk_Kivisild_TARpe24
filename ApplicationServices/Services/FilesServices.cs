@@ -46,7 +46,7 @@ namespace ApplicationServices.Services
                             ExistingFilePath = uniqueFileName,
                             MovieID = domain.ID,
                         };
-                        _context.FilesToApi.AddAsync(path);
+                        _context.FilesToApi.Add(path);
                     }
                 }
             }

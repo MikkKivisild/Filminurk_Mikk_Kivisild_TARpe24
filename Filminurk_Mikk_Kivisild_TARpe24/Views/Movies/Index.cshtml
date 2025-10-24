@@ -4,7 +4,7 @@
 }
 
 <div>
-	<a asp-action="Create" asp-controller="Movies" type="submit" class="btn btn-primary"></a>
+	<a asp-action="Create" asp-controller="Movies" type="submit" class="btn btn-primary">Add Movie</a>
 </div>
 <div class="h1">
 	Filmid
@@ -17,9 +17,7 @@
                 <th scope="col">Filmi pealkiri</th>
                 <th scope="col">Väljalaskeaeg</th>
                 <th scope="col">Hinnang</th>
-                <th scope="col">Hooaegade Arv</th>
-                <th scope="col">Kala</th>
-                <th scope="col">Tööriistad</th>
+                <th scope="col">Hooaegade Arv</th>                <th scope="col">Tööriistad</th>
             </tr>
         </thead>
         <tbody>
@@ -31,7 +29,6 @@
                     <td>@movie.FirstPublished</td>
                     <td>@movie.CurrentRating</td>
                     <td>@movie.Seasons</td>
-                    <td>@movie.Fish</td>
                     <td></td>
                 </tr>
                 rowNumber += 1;

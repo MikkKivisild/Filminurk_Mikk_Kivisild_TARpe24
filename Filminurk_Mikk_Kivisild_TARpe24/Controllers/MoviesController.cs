@@ -41,42 +41,44 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
         public IActionResult Create()
         {
             MoviesCreateUpdateViewModel result = new();
-            return View("Create", result);
+            return View("CreateUpdate", result);
         }
         [HttpPost]
         public async Task<IActionResult> Create(MoviesCreateUpdateViewModel vm)
         {
-            if (vm == null)
+            if (ModelState.IsValid)
             {
-                return NotFound();
-            }
-            var dto = new MoviesDTO()
-            {
-                ID = vm.ID,
-                Title = vm.Title,
-                Description = vm.Description,
-                FirstPublished = vm.FirstPublished,
-                Director = vm.Director,
-                Actors = vm.Actors,
-                CurrentRating = vm.CurrentRating,
-                Seasons = vm.Seasons,
-                LastPublished = vm.LastPublished,
-                Fish = vm.Fish,
-                EntryCreatedAt = vm.EntryCreatedAt,
-                EntryModifiedAt = vm.EntryModifiedAt,
-                Files = vm.Files,
-                FilesToApiDTOs  = vm.Images
-                .Select(x => new FileToApiDTO
+
+
+                var dto = new MoviesDTO()
                 {
-                    ImageID = x.ImageID,
-                    FilePath = x.FilePath,
-                    MovieID = x.MovieID,
-                    IsPoster = x.IsPoster,
-                }).ToArray()
-            };
-            var result = await _movieServices.Create(dto);
-            if (result == null)
-            {
+                    ID = vm.ID,
+                    Title = vm.Title,
+                    Description = vm.Description,
+                    FirstPublished = vm.FirstPublished,
+                    Director = vm.Director,
+                    Actors = vm.Actors,
+                    CurrentRating = vm.CurrentRating,
+                    Seasons = vm.Seasons,
+                    LastPublished = vm.LastPublished,
+                    Fish = vm.Fish,
+                    EntryCreatedAt = vm.EntryCreatedAt,
+                    EntryModifiedAt = vm.EntryModifiedAt,
+                    Files = vm.Files,
+                    FilesToApiDTOs = vm.Images
+                    .Select(x => new FileToApiDTO
+                    {
+                        ImageID = x.ImageID,
+                        FilePath = x.FilePath,
+                        MovieID = x.MovieID,
+                        IsPoster = x.IsPoster,
+                    }).ToArray()
+                };
+                var result = await _movieServices.Create(dto);
+                if (result == null)
+                {
+                    NotFound();
+                }
                 return RedirectToAction(nameof(Index));
             }
             return RedirectToAction(nameof(Index));
@@ -91,6 +93,8 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
             {
                 return NotFound();
             }
+            ImageViewModel[] images = await FileFromDatabase(id);
+
             var vm = new MoviesDetailsViewModel();
 
             vm.ID = movie.ID;
@@ -105,6 +109,7 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
             vm.EntryModifiedAt = movie.EntryModifiedAt;
             vm.Director = movie.Director;
             vm.Actors = movie.Actors;
+            vm.Images.AddRange(images);
 
             return View(vm);
         }
@@ -218,6 +223,18 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
             if(movie == null)
             {  return NotFound(); }
             return RedirectToAction(nameof(Index));
+        }
+        private async Task<ImageViewModel[]> FileFromDatabase(Guid id)
+        {
+            return await _context.FilesToApi
+                .Where(x => x.MovieID == id)
+                .Select(y => new ImageViewModel
+                {
+                    ImageID = y.ImageID,
+                    MovieID = y.MovieID,
+                    IsPoster = y.IsPoster,
+                    FilePath = y.ExistingFilePath
+                }).ToArrayAsync();
         }
     }
 }
