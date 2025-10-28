@@ -26,14 +26,14 @@ namespace ApplicationServices.Services
         {
             if (dto.Files != null && dto.Files.Count > 0)
             {
-                if (Directory.Exists(_webHost.ContentRootPath + "\\wwwroot\\multipleFileUploard\\"))
+                if (Directory.Exists(_webHost.ContentRootPath + "\\wwwroot\\multipleFileUpload\\"))
                 {
-                    Directory.Exists(_webHost.ContentRootPath + "\\wwwroot\\multipleFileUploard\\");
+                    Directory.Exists(_webHost.ContentRootPath + "\\wwwroot\\multipleFileUpload\\");
                 }
 
                 foreach (var file in dto.Files)
                 {
-                    string uploadsFolder = Path.Combine(_webHost.ContentRootPath, "wwwroot", "multipleFileUploard");
+                    string uploadsFolder = Path.Combine(_webHost.ContentRootPath, "wwwroot", "multipleFileUpload");
                     string uniqueFileName = Guid.NewGuid().ToString() + "_" + file.FileName;
                     string FilePath = Path.Combine(uploadsFolder, uniqueFileName);
 

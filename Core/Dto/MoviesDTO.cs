@@ -23,7 +23,7 @@ namespace Core.Dto
         // minu andme tüübid
         public int? Seasons { get; set; }
         public DateTime? LastPublished { get; set; }
-        public string Fish { get; set; }
+        public string? Fish { get; set; }
 
         /* andmebaasi jaoks vajalikud */
         public DateTime? EntryCreatedAt { get; set; }

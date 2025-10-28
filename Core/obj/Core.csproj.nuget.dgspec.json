@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\opilane\\source\\repos\\Filminurk_Mikk_Kivisild_TARpe24\\Core\\Core.csproj": {}
+    "C:\\Users\\opilane\\Source\\Repos\\Filminurk_Mikk_Kivisild_TARpe24\\Core\\Core.csproj": {}
   },
   "projects": {
-    "C:\\Users\\opilane\\source\\repos\\Filminurk_Mikk_Kivisild_TARpe24\\Core\\Core.csproj": {
+    "C:\\Users\\opilane\\Source\\Repos\\Filminurk_Mikk_Kivisild_TARpe24\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\opilane\\source\\repos\\Filminurk_Mikk_Kivisild_TARpe24\\Core\\Core.csproj",
+        "projectUniqueName": "C:\\Users\\opilane\\Source\\Repos\\Filminurk_Mikk_Kivisild_TARpe24\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "C:\\Users\\opilane\\source\\repos\\Filminurk_Mikk_Kivisild_TARpe24\\Core\\Core.csproj",
+        "projectPath": "C:\\Users\\opilane\\Source\\Repos\\Filminurk_Mikk_Kivisild_TARpe24\\Core\\Core.csproj",
         "packagesPath": "C:\\Users\\opilane\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\opilane\\source\\repos\\Filminurk_Mikk_Kivisild_TARpe24\\Core\\obj\\",
+        "outputPath": "C:\\Users\\opilane\\Source\\Repos\\Filminurk_Mikk_Kivisild_TARpe24\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
