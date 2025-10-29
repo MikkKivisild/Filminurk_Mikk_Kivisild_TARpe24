@@ -15,9 +15,10 @@ namespace Core.Domain
         public string? Director { get; set; }
         public List<string>? Actors { get; set; }
         public Double? CurrentRating { get; set; }
+        public List<UserComment>? Reviews { get; set; }
 
-        // minu andme tüübid
-        public int? Seasons { get; set; }
+		// minu andme tüübid
+		public int? Seasons { get; set; }
         public DateTime? LastPublished { get; set; }
         public string? Fish {  get; set; }
         public DateTime? EntryCreatedAt { get; set; }

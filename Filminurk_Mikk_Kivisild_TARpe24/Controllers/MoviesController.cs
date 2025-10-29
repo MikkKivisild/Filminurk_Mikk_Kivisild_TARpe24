@@ -79,7 +79,11 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
                 {
                     NotFound();
                 }
-                return RedirectToAction(nameof(Index));
+				if (!ModelState.IsValid)
+				{
+					NotFound();
+				}
+				return RedirectToAction(nameof(Index));
             }
             return RedirectToAction(nameof(Index));
         }
