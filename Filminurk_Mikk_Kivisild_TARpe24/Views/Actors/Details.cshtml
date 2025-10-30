@@ -1,0 +1,51 @@
+﻿@model Filminurk_Mikk_Kivisild_TARpe24.Models.Actors.ActorsDetailsViewModel
+<h1>Actor Details</h1>
+
+<div>
+	<h4>Actor</h4>
+	<hr />
+	<dl class="row">
+		<div class="form-group-row">
+			<label asp-for="ActorID" class="col-sm-2 col-form-label"></label>
+			@Html.DisplayFor(model => model.ActorID)
+		</div>
+	</dl>
+	<dl class="row">
+		<div class="form-group-row">
+			<label asp-for="FirstName" class="col-sm-2 col-form-label"></label>
+			@Html.DisplayFor(model => model.FirstName)
+		</div>
+	</dl>
+	<dl class="row">
+		<div class="form-group-row">
+			<label asp-for="LastName" class="col-sm-2 col-form-label"></label>
+			@Html.DisplayFor(model => model.LastName)
+		</div>
+	</dl>
+	<dl class="row">
+		<div class="form-group-row">
+			<label asp-for="NickName" class="col-sm-2 col-form-label"></label>
+			@Html.DisplayFor(model => model.NickName)
+		</div>
+	</dl>
+	<dl class="row">
+		<div class="form-group-row">
+			<label asp-for="FirstActed" class="col-sm-2 col-form-label"></label>
+			@Html.DisplayFor(model => model.FirstActed)
+		</div>
+	</dl>
+	<dl class="row">
+		<div class="form-group-row">
+			<label asp-for="Age" class="col-sm-2 col-form-label"></label>
+			@Html.DisplayFor(model => model.Age)
+		</div>
+	</dl>
+	<dl class="row">
+		<div class="form-group-row">
+			<label asp-for="Gender" class="col-sm-2 col-form-label"></label>
+			@Html.DisplayFor(model => model.Gender)
+		</div>
+	</dl>
+	<hr />
+	<a asp-action="Index" asp-controller="Actors" class="btn btn-success">Return to list</a>
+</div>
