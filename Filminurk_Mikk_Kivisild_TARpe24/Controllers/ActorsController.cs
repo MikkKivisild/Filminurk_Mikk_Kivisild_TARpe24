@@ -53,7 +53,10 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
                     PortraitID = vm.PortraitID,
                     FirstActed = vm.FirstActed,
                     Age = vm.Age,
-                    Gender = (Core.Dto.Gender?)vm.Gender
+                    Gender = (Core.Dto.Gender?)vm.Gender,
+                    EntryCreatedAt = vm.EntryCreatedAt,
+                    EntryModifiedAt = vm.EntryModifiedAt
+
                 };
                 var actors = await _actorServices.Create(dto);
                 if (actors == null)
@@ -84,6 +87,8 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
             vm.FirstActed = vm.FirstActed;
             vm.Age = vm.Age;
             vm.Gender = (Models.Actors.Gender?)vm.Gender;
+            vm.EntryCreatedAt = vm.EntryCreatedAt;
+            vm.EntryModifiedAt = vm.EntryModifiedAt;
 
             return View(vm);
         }
@@ -103,6 +108,8 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
             vm.FirstActed = vm.FirstActed;
             vm.Age = vm.Age;
             vm.Gender = (Models.Actors.Gender?)vm.Gender;
+            vm.EntryCreatedAt = vm.EntryCreatedAt;
+            vm.EntryModifiedAt = vm.EntryModifiedAt;
 
 
             return View("CreateUpdate", vm);
@@ -119,7 +126,9 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
                 PortraitID = vm.PortraitID,
                 FirstActed = vm.FirstActed,
                 Age = vm.Age,
-                Gender = (Core.Dto.Gender?)vm.Gender
+                Gender = (Core.Dto.Gender?)vm.Gender,
+                EntryCreatedAt = vm.EntryCreatedAt,
+                EntryModifiedAt = vm.EntryModifiedAt
             };
             var actor = await _actorServices.Update(dto);
 
@@ -140,10 +149,13 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
             vm.FirstName = actor.FirstName;
             vm.LastName = actor.LastName;
             vm.NickName = actor.NickName;
-            vm.PortraitID = vm.PortraitID;
-            vm.FirstActed = vm.FirstActed;
-            vm.Age = vm.Age;
-            vm.Gender = (Models.Actors.Gender?)vm.Gender;
+            vm.PortraitID = actor.PortraitID;
+            vm.FirstActed = actor.FirstActed;
+            vm.Age = actor.Age;
+            vm.Gender = (Models.Actors.Gender?)actor.Gender;
+            vm.EntryCreatedAt = actor.EntryCreatedAt;
+            vm.EntryModifiedAt = actor.EntryModifiedAt;
+
 
             return View(vm);
         }

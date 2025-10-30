@@ -9,6 +9,7 @@ using Core.ServiceInterface;
 using Data;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace ApplicationServices.Services
 {
     public class ActorsServices : IActorServices
@@ -32,6 +33,8 @@ namespace ApplicationServices.Services
             actor.FirstActed = (DateOnly)dto.FirstActed;
             actor.Age = (int)dto.Age;
             actor.Gender = (Core.Domain.Gender)dto.Gender;
+            actor.EntryCreatedAt = DateTime.Now;
+            actor.EntryModifiedAt = DateTime.Now;
 
             await _context.AddAsync(actor);
             await _context.SaveChangesAsync();
@@ -53,6 +56,8 @@ namespace ApplicationServices.Services
             actor.FirstActed = (DateOnly)dto.FirstActed;
             actor.Age = (int)dto.Age;
             actor.Gender = (Core.Domain.Gender)dto.Gender;
+            actor.EntryCreatedAt = dto.EntryCreatedAt;
+            actor.EntryModifiedAt = DateTime.Now;
 
             await _context.AddAsync(actor);
             await _context.SaveChangesAsync();

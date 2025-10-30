@@ -23,5 +23,9 @@ namespace Core.Dto
         public DateOnly? FirstActed { get; set; }
         public int? Age { get; set; }
         public Gender? Gender { get; set; }
+
+        /* andmebaasi jaoks vajalikud */
+        public DateTime? EntryCreatedAt { get; set; }
+        public DateTime? EntryModifiedAt { get; set; }
     }
 }

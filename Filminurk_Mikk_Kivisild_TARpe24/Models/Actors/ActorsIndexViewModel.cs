@@ -17,5 +17,7 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Models.Actors
         public DateOnly? FirstActed { get; set; }
         public int? Age { get; set; }
         public Gender? Gender { get; set; }
+        public DateTime? EntryCreatedAt { get; set; }
+        public DateTime? EntryModifiedAt { get; set; }
     }
 }
