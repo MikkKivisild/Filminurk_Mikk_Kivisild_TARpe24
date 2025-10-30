@@ -46,7 +46,7 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
             {
                 var dto = new ActorsDTO()
                 {
-                    ActorID = vm.ActorID,
+                    ActorID = (Guid)vm.ActorID,
                     FirstName = vm.FirstName,
                     LastName = vm.LastName,
                     NickName = vm.NickName,
@@ -112,7 +112,7 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
         {
             var dto = new ActorsDTO()
             {
-                ActorID = vm.ActorID,
+                ActorID = (Guid)vm.ActorID,
                 FirstName = vm.FirstName,
                 LastName = vm.LastName,
                 NickName = vm.NickName,
