@@ -20,7 +20,7 @@ namespace Core.Dto
         public string NickName { get; set; }
         List<string> MoviesActedFor { get; set; }
         public Guid PortraitID { get; set; }
-        public DateTime FirstActed { get; set; }
+        public DateOnly FirstActed { get; set; }
         public int Age { get; set; }
         public Gender Gender { get; set; }
     }
