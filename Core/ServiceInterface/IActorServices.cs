@@ -11,5 +11,8 @@ namespace Core.ServiceInterface
     public interface IActorServices
     {
         Task<Actor> Create(ActorsDTO dto);
+        Task<Actor> DetailsAsync(Guid id);
+        Task<Actor> Update(ActorsDTO dto);
+        Task<Actor> Delete(Guid id);
     }
 }
