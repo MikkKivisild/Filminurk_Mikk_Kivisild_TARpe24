@@ -31,7 +31,7 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
                 Age = vm.Age,
                 Gender = (Models.Actors.Gender?)vm.Gender
             });
-            return View();
+            return View(actors);
         }
         [HttpGet]
         public IActionResult Create()
