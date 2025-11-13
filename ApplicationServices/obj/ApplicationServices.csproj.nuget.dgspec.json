@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mikkm\\source\\repos\\Filminurk_Mikk_Kivisild_TARpe24\\ApplicationServices\\ApplicationServices.csproj": {}
+    "C:\\Users\\opilane\\Source\\Repos\\Filminurk_Mikk_Kivisild_TARpe24\\ApplicationServices\\ApplicationServices.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mikkm\\source\\repos\\Filminurk_Mikk_Kivisild_TARpe24\\ApplicationServices\\ApplicationServices.csproj": {
+    "C:\\Users\\opilane\\Source\\Repos\\Filminurk_Mikk_Kivisild_TARpe24\\ApplicationServices\\ApplicationServices.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mikkm\\source\\repos\\Filminurk_Mikk_Kivisild_TARpe24\\ApplicationServices\\ApplicationServices.csproj",
+        "projectUniqueName": "C:\\Users\\opilane\\Source\\Repos\\Filminurk_Mikk_Kivisild_TARpe24\\ApplicationServices\\ApplicationServices.csproj",
         "projectName": "ApplicationServices",
-        "projectPath": "C:\\Users\\mikkm\\source\\repos\\Filminurk_Mikk_Kivisild_TARpe24\\ApplicationServices\\ApplicationServices.csproj",
-        "packagesPath": "C:\\Users\\mikkm\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mikkm\\source\\repos\\Filminurk_Mikk_Kivisild_TARpe24\\ApplicationServices\\obj\\",
+        "projectPath": "C:\\Users\\opilane\\Source\\Repos\\Filminurk_Mikk_Kivisild_TARpe24\\ApplicationServices\\ApplicationServices.csproj",
+        "packagesPath": "C:\\Users\\opilane\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\opilane\\Source\\Repos\\Filminurk_Mikk_Kivisild_TARpe24\\ApplicationServices\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\mikkm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\opilane\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -33,11 +33,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\mikkm\\source\\repos\\Filminurk_Mikk_Kivisild_TARpe24\\Core\\Core.csproj": {
-                "projectPath": "C:\\Users\\mikkm\\source\\repos\\Filminurk_Mikk_Kivisild_TARpe24\\Core\\Core.csproj"
+              "C:\\Users\\opilane\\Source\\Repos\\Filminurk_Mikk_Kivisild_TARpe24\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\opilane\\Source\\Repos\\Filminurk_Mikk_Kivisild_TARpe24\\Core\\Core.csproj"
               },
-              "C:\\Users\\mikkm\\source\\repos\\Filminurk_Mikk_Kivisild_TARpe24\\Data\\Data.csproj": {
-                "projectPath": "C:\\Users\\mikkm\\source\\repos\\Filminurk_Mikk_Kivisild_TARpe24\\Data\\Data.csproj"
+              "C:\\Users\\opilane\\Source\\Repos\\Filminurk_Mikk_Kivisild_TARpe24\\Data\\Data.csproj": {
+                "projectPath": "C:\\Users\\opilane\\Source\\Repos\\Filminurk_Mikk_Kivisild_TARpe24\\Data\\Data.csproj"
               }
             }
           }
@@ -51,7 +51,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -88,24 +89,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.410/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\mikkm\\source\\repos\\Filminurk_Mikk_Kivisild_TARpe24\\Core\\Core.csproj": {
+    "C:\\Users\\opilane\\Source\\Repos\\Filminurk_Mikk_Kivisild_TARpe24\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mikkm\\source\\repos\\Filminurk_Mikk_Kivisild_TARpe24\\Core\\Core.csproj",
+        "projectUniqueName": "C:\\Users\\opilane\\Source\\Repos\\Filminurk_Mikk_Kivisild_TARpe24\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "C:\\Users\\mikkm\\source\\repos\\Filminurk_Mikk_Kivisild_TARpe24\\Core\\Core.csproj",
-        "packagesPath": "C:\\Users\\mikkm\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mikkm\\source\\repos\\Filminurk_Mikk_Kivisild_TARpe24\\Core\\obj\\",
+        "projectPath": "C:\\Users\\opilane\\Source\\Repos\\Filminurk_Mikk_Kivisild_TARpe24\\Core\\Core.csproj",
+        "packagesPath": "C:\\Users\\opilane\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\opilane\\Source\\Repos\\Filminurk_Mikk_Kivisild_TARpe24\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\mikkm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\opilane\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -132,7 +133,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -165,24 +167,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.410/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\mikkm\\source\\repos\\Filminurk_Mikk_Kivisild_TARpe24\\Data\\Data.csproj": {
+    "C:\\Users\\opilane\\Source\\Repos\\Filminurk_Mikk_Kivisild_TARpe24\\Data\\Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mikkm\\source\\repos\\Filminurk_Mikk_Kivisild_TARpe24\\Data\\Data.csproj",
+        "projectUniqueName": "C:\\Users\\opilane\\Source\\Repos\\Filminurk_Mikk_Kivisild_TARpe24\\Data\\Data.csproj",
         "projectName": "Data",
-        "projectPath": "C:\\Users\\mikkm\\source\\repos\\Filminurk_Mikk_Kivisild_TARpe24\\Data\\Data.csproj",
-        "packagesPath": "C:\\Users\\mikkm\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mikkm\\source\\repos\\Filminurk_Mikk_Kivisild_TARpe24\\Data\\obj\\",
+        "projectPath": "C:\\Users\\opilane\\Source\\Repos\\Filminurk_Mikk_Kivisild_TARpe24\\Data\\Data.csproj",
+        "packagesPath": "C:\\Users\\opilane\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\opilane\\Source\\Repos\\Filminurk_Mikk_Kivisild_TARpe24\\Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\mikkm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\opilane\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -198,8 +200,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\mikkm\\source\\repos\\Filminurk_Mikk_Kivisild_TARpe24\\Core\\Core.csproj": {
-                "projectPath": "C:\\Users\\mikkm\\source\\repos\\Filminurk_Mikk_Kivisild_TARpe24\\Core\\Core.csproj"
+              "C:\\Users\\opilane\\Source\\Repos\\Filminurk_Mikk_Kivisild_TARpe24\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\opilane\\Source\\Repos\\Filminurk_Mikk_Kivisild_TARpe24\\Core\\Core.csproj"
               }
             }
           }
@@ -213,7 +215,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -250,7 +253,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.410/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

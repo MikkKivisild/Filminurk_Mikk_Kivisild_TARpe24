@@ -1,0 +1,26 @@
+﻿@model Filminurk_Mikk_Kivisild_TARpe24.Models.UserComments.UserCommentsCreateViewModel
+<h1>Add New Comment</h1>
+<div>
+	<form method="post" enctype="multipart/form-data">
+		<input asp-for="CommentID" type="hidden"/>
+		<input asp-for="CommentCreatedAt" type="hidden"/>
+		<input asp-for="CommentModifieddAt" type="hidden"/>
+		<input asp-for="CommenterUserID" type="hidden" />
+
+		<div>
+			<label asp-for="CommentBody" class="col-sm-2 col-form-label"></label>
+			<div class="col-sm-10">
+				<input asp-for="CommentBody"/>
+			</div>
+		</div>
+		<div>
+			<label asp-for="CommentScore" class="col-sm-2 col-form-label"></label>
+			<div class="col-sm-10">
+				<input asp-for="CommentScore"/>
+			</div>
+		</div>
+
+		<input asp-action="NewComment" asp-controller="UserComments" type="submit" class="btn btn-primary" value="Post Comment" />
+
+	</form>
+</div>

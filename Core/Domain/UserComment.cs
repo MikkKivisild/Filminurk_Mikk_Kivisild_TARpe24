@@ -11,11 +11,11 @@ namespace Core.Domain
 	{
 		[Key]
 		public Guid CommentID { get; set; }
-		public string? CommentUserID { get; set; }
+		public string? CommenterUserID { get; set; }
 		public string CommentBody { get; set; }
         public int CommentScore { get; set; }
-		public int IsHelpful { get; set; }
-		public int IsHarmful { get; set; }
+		public int? IsHelpful { get; set; }
+		public int? IsHarmful { get; set; }
 
 		/* Andmebaasi jaoks vajalikud andmed */
 		public DateTime CommentCreatedAt { get; set; }

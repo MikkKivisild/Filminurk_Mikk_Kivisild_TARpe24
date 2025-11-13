@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<Filminurk_Mikk_Kivisild_TARpe24.Models.UserComments.UserCommentsIndexViewModel>
 
-	@{
+@{
 	int rowNumber = 1;
 }
 
@@ -11,7 +11,7 @@
 	Kasutajate arvustused:
 </div>
 <div>
-<	<form method="get">
+	<form method="get">
 		<table class="table table-hover">
 			<thead>
 				<tr>
@@ -22,6 +22,31 @@
 					<th scope="col">CommentCreatedAt</th>                
 				</tr>
 			</thead>
+			<tbody>
+				@foreach (var comment in Model)
+				{
+					<tr>
+						<td>@rowNumber</td>
+						<td>@comment.CommentID</td>
+						<td>@comment.CommentBody</td>
+						<td>@comment.IsHarmful</td>
+						<td>@comment.CommentCreatedAt</td>
+						<td>
+							<a asp-action="DetailsAdmin"
+							   asp-controller="UserComments" 
+							asp-route-id="@comment.CommentID" 
+							class="btn btn-primary"
+							>Details</a>
+							<a asp-action="DeleteComment" 
+							asp-controller="UserComments" 
+							asp-route-id="@comment.CommentID" 
+							class="btn btn-danger"
+							>Delete</a>
+						</td>
+					</tr>
+					rowNumber++;
+				}
+			</tbody>
 		</table>
 	</form>
 </div>
