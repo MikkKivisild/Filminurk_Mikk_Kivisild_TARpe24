@@ -12,5 +12,6 @@ namespace Core.ServiceInterface
     {
         Task<UserComment> NewComment(UserCommentDTO newcommentDTO);
         Task<UserComment> DetailsAsync(Guid id);
+        Task<UserComment> Delete(Guid id);
     }
 }

@@ -1,0 +1,66 @@
+﻿@model Filminurk_Mikk_Kivisild_TARpe24.Models.UserComments.UserCommentsIndexViewModel
+<h1>kurt cobain pov</h1>
+<div>
+	<h4>Info:</h4>
+	<hr />
+	<dl class="row">
+		<div class="form-group row">
+			<label asp-for="CommentID" class="col-sm-2 col-form-label"></label>
+			@Html.DisplayFor(model => model.CommentID)
+		</div>
+	</dl>
+	<dl class="row">
+		<div class="form-group row">
+			<label asp-for="CommenterUserID" class="col-sm-2 col-form-label"></label>
+			@Html.DisplayFor(model => model.CommenterUserID)
+		</div>
+	</dl>
+	<dl class="row">
+		<div class="form-group row">
+			<label asp-for="CommentBody" class="col-sm-2 col-form-label"></label>
+			@Html.DisplayFor(model => model.CommentBody)
+		</div>
+	</dl>
+	<dl class="row">
+		<div class="form-group row">
+			<label asp-for="CommentScore" class="col-sm-2 col-form-label"></label>
+			@Html.DisplayFor(model => model.CommentScore)
+		</div>
+	</dl>
+	<dl class="row">
+		<div class="form-group row">
+			<label asp-for="IsHelpful" class="col-sm-2 col-form-label"></label>
+			@Html.DisplayFor(model => model.IsHelpful)
+		</div>
+	</dl>
+	<dl class="row">
+		<div class="form-group row">
+			<label asp-for="IsHarmful" class="col-sm-2 col-form-label"></label>
+			@Html.DisplayFor(model => model.IsHarmful)
+		</div>
+	</dl>
+	<dl class="row">
+		<div class="form-group row">
+			<label asp-for="CommentCreatedAt" class="col-sm-2 col-form-label"></label>
+			@Html.DisplayFor(model => model.CommentCreatedAt)
+		</div>
+	</dl>
+	<dl class="row">
+		<div class="form-group row">
+			<label asp-for="CommentModifieddAt" class="col-sm-2 col-form-label"></label>
+			@Html.DisplayFor(model => model.CommentModifieddAt)
+		</div>
+	</dl>
+	<dl class="row">
+		<div class="form-group row">
+			<label asp-for="CommentDeletedAt" class="col-sm-2 col-form-label"></label>
+			@Html.DisplayFor(model => model.CommentDeletedAt)
+		</div>
+	</dl>
+	<hr />
+	<form asp-action="DeleteCommentAdmin">
+		<input type="hidden" asp-for="CommentID" />
+		<input type="submit" value="Delete" class="btn btn-danger" asp-controller="UserComments" asp-action="DeleteCommentAdmin" asp-route-id="@Model.CommentID" />
+		<a asp-action="Index" asp-controller="UserComments" class="btn btn-primary">Back</a>
+	</form>
+</div>

@@ -92,5 +92,28 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
 			return View(commentVM);
 
 		}
+		[HttpGet]
+		public async Task<IActionResult> DeleteComment(Guid id)
+		{
+			var deleteEntry = await _userCommentsServices.DetailsAsync(id);
+			if (deleteEntry == null) { return NotFound(); }
+			var commentVM = new UserCommentsIndexViewModel();
+            commentVM.CommentID = deleteEntry.CommentID;
+            commentVM.CommentBody = deleteEntry.CommentBody;
+            commentVM.CommenterUserID = deleteEntry.CommenterUserID;
+            commentVM.CommentScore = deleteEntry.CommentScore;
+            commentVM.CommentDeletedAt = deleteEntry.CommentDeletedAt;
+            commentVM.CommentModifieddAt = deleteEntry.CommentModifieddAt;
+            commentVM.CommentCreatedAt = deleteEntry.CommentCreatedAt;
+			return View("DeleteAdmin",commentVM);
+        }
+		[HttpPost, ActionName("DeleteCommentAdmin")]
+		public async Task<IActionResult> DeletedAdminPost(Guid id)
+		{
+			var deleteThisComment = await _userCommentsServices.Delete(id);
+			if (deleteThisComment == null) { return NotFound(); }
+			return RedirectToAction(nameof(Index));
+
+        }
 	}
 }
