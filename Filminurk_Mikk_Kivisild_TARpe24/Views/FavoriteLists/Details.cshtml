@@ -1,0 +1,64 @@
+﻿@model Filminurk_Mikk_Kivisild_TARpe24.Models.FavoriteLists.FavoriteListUserDetailsViewModel
+@{
+	int rowNumber = 1;
+}
+<div>
+	@if (Model.IsReported == true)
+	{
+		@: Your list breaks the terms of service <br/>
+		@: your list is privated untill a admin aproves it <br/>
+	}
+	<table>
+		<tr>@Model.ListName</tr>
+		<tr><partial name="_ImageIndex" model="@Model.Image"></partial></tr>
+	</table>
+</div>
+<div>
+	<table class="table">
+	@foreach(var movie in Model.ListOfMovies)
+	{
+		<tr>
+			<table class="table" style="border:thick;">
+				<tr>
+					<td colspan="2">@movie.Title</td>
+				</tr>
+				<tr>
+					<td>(IMAGE HERE)</td>
+					<td>
+						<table>
+							<tr>@movie.Description</tr>
+							<tr>@movie.Director</tr>
+							<tr>@movie.Fish</tr>
+							<tr>@movie.CurrentRating</tr>
+							<tr>@movie.Seasons</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</tr>
+	}
+	</table>
+	<div>
+		<input asp-action="UserDelete" 
+		asp-controller="FavoriteListsController" 
+		asp-route-id="@Model.FavoriteListID" 
+		type="submit" class="btn btn-danger" 
+		value="Delete List" />		
+		
+		<input asp-action="UserTogglePrivacy" 
+		asp-controller="FavoriteListsController" 
+		asp-route-id="@Model.FavoriteListID" 
+		type="submit" class="btn btn-warning" 
+		value="Privte List" />		
+		
+		<input asp-action="UserEditList" 
+		asp-controller="FavoriteListsController" 
+		asp-route-id="@Model.FavoriteListID" 
+		type="submit" class="btn btn-success" 
+		value="Edit List" />	
+		<a asp-action="Index" 
+		asp-controller="FavoriteListsController"
+		   class="btn btn-light">Back to index</a>
+
+	</div>
+</div>

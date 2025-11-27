@@ -27,7 +27,8 @@ namespace ApplicationServices.Services
                 .FirstOrDefaultAsync(x => x.FavoriteListID == id);
             return result;
         }
-        public async Task<FavoriteList> Create(FavoriteListDTO dto, List<Movie> selectedMovies)
+
+        public async Task<FavoriteList> Create(FavoriteListDTO dto/*, List<Movie> selectedMovies */)
         {
             FavoriteList newlist = new();
             newlist.FavoriteListID = Guid.NewGuid();
@@ -36,9 +37,10 @@ namespace ApplicationServices.Services
             newlist.ListCreatedAt = dto.ListCreatedAt;
             newlist.ListModifiedAt = (DateTime)dto.ListModifiedAt;
             newlist.ListDeletedAt = (DateTime)dto.ListDeletedAt;
-            //newlist.ListOfMovies = selectedMovies;
+            newlist.ListOfMovies = dto.ListOfMovies;
             await _context.FavoriteLists.AddAsync(newlist);
             await _context.SaveChangesAsync();
+
             // foreach (var movieid in selectedMovies)
             // {
             //     _context.FavouriteLists.Entry
@@ -48,5 +50,6 @@ namespace ApplicationServices.Services
             return newlist;
 
         }
+
     }
 }
