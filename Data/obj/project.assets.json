@@ -4067,9 +4067,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\opilane\\Source\\Repos\\Filminurk_Mikk_Kivisild_TARpe24\\Data\\Data.csproj",
+      "projectUniqueName": "C:\\Users\\opilane\\source\\repos\\Filminurk_Mikk_Kivisild_TARpe24\\Data\\Data.csproj",
       "projectName": "Data",
-      "projectPath": "C:\\Users\\opilane\\Source\\Repos\\Filminurk_Mikk_Kivisild_TARpe24\\Data\\Data.csproj",
+      "projectPath": "C:\\Users\\opilane\\source\\repos\\Filminurk_Mikk_Kivisild_TARpe24\\Data\\Data.csproj",
       "packagesPath": "C:\\Users\\opilane\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\opilane\\Source\\Repos\\Filminurk_Mikk_Kivisild_TARpe24\\Data\\obj\\",
       "projectStyle": "PackageReference",
@@ -4093,8 +4093,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\opilane\\Source\\Repos\\Filminurk_Mikk_Kivisild_TARpe24\\Core\\Core.csproj": {
-              "projectPath": "C:\\Users\\opilane\\Source\\Repos\\Filminurk_Mikk_Kivisild_TARpe24\\Core\\Core.csproj"
+            "C:\\Users\\opilane\\source\\repos\\Filminurk_Mikk_Kivisild_TARpe24\\Core\\Core.csproj": {
+              "projectPath": "C:\\Users\\opilane\\source\\repos\\Filminurk_Mikk_Kivisild_TARpe24\\Core\\Core.csproj"
             }
           }
         }

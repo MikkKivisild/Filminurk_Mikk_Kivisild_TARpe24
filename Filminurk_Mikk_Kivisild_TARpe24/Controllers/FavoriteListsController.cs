@@ -1,4 +1,5 @@
-﻿using ApplicationServices.Services;
+﻿using System.Threading.Tasks;
+using ApplicationServices.Services;
 using Core.Domain;
 using Core.Dto;
 using Core.ServiceInterface;
@@ -127,6 +128,31 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
             { return NotFound(); }
             //add viewdata attribute here later, to discern user and admin
             return View("Details", thisList.First());
+        }
+
+        [HttpPost]
+        public IActionResult UserTogglePrivacy(Guid id)
+        {
+            FavoriteList thisList = _favoriteListsServices.DetailsAsync(id);
+
+            FavoriteListDTO updatedList = new FavoriteListDTO();
+            updatedList.ListBelongsToUser = thisList.ListBelongsToUser;
+            updatedList.FavoriteListID = thisList.FavoriteListID;
+            updatedList.ListName = thisList.ListName;
+            updatedList.ListDescription = thisList.ListDescription;
+            updatedList.IsPrivate = thisList.IsPrivate;
+            updatedList.ListOfMovies = thisList.ListOfMovies;
+            updatedList.IsReported = thisList.IsReported;
+            updatedList.IsMovieOrActor = thisList.IsMovieOrActor;
+            updatedList.ListCreatedAt = thisList.ListCreatedAt;
+            updatedList.ListModifiedAt = DateTime.Now;
+            updatedList.ListDeletedAt = thisList.ListDeletedAt;
+            
+
+            
+            thisList.IsPrivate = !thisList.IsPrivate;
+            _favoriteListsServices.Update(thisList);
+            return View("Details");
         }
 
         private List<Guid> MovieToId(List<Movie> listOfMovies)

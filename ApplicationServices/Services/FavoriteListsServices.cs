@@ -51,5 +51,15 @@ namespace ApplicationServices.Services
 
         }
 
+        public async Task<FavoriteList> Update(FavoriteListDTO dto)
+        {
+            FavoriteList newlist = new FavoriteList();
+
+
+
+            await _context.AddAsync(newlist);
+            await _context.SaveChangesAsync();
+            return newlist;
+        }
     }
 }
