@@ -23,17 +23,33 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            var resultingLists = _context.FavoriteLists
+                .OrderByDescending(y => y.ListCreatedAt)
+                .Select(x => new FavoriteListsIndexViewModel
+                {
+                    FavoriteListID = x.FavoriteListID,
+                    ListBelongsToUser = x.ListBelongsToUser,
+                    ListName = x.ListName,
+                    ListDescription = x.ListDescription,
+                    ListCreatedAt = x.ListCreatedAt,
+                    Image = (List<FavoriteListsIndexImageViewModel>)_context.FilesToDatabase
+                    .Where(ml => ml.ListID == x.FavoriteListID)
+                    .Select(li => new FavoriteListsIndexImageViewModel
+                    {
+                        ListID = li.ListID,
+                        ImageID = li.ImageID,
+                        ImageData = li.ImageData,
+                        ImageTitle = li.ImageTitle,
+                        Image = string.Format("data:image/gif;base64,{0}", Convert.ToBase64String(li.ImageData)),
+                    })
+
+                });
+            return View(resultingLists);
         }
-
-        public async Task<FavoriteList> DetailsAsync()
-        {
-
-        }
-
         [HttpGet]
         public IActionResult Create()
         {
+            //todo: identify the user type. return different view for admin and registered user
             var movies = _context.Movies
                 .OrderBy(m => m.Title)
                 .Select(mo => new MoviesIndexViewModel
@@ -48,12 +64,13 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
             FavoriteListUserCreateViewModel vm = new();
             return View("Create", vm);
         }
+
         [HttpPost]
         public async Task<IActionResult> UserCreate(FavoriteListUserCreateViewModel vm,
             List<string> userHasSelected, List<MoviesIndexViewModel> movies)
         {
             List<Guid> tempParse = new();
-            foreach (var item in movies)
+            foreach (var stringID in userHasSelected)
             {
                 tempParse.Add(Guid.Parse(stringID));
             }
@@ -67,7 +84,6 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
             newListDto.ListBelongsToUser = Guid.NewGuid().ToString();
             newListDto.ListModifiedAt = DateTime.UtcNow;
             newListDto.ListDeletedAt = DateTime.UtcNow;
-            newListDto.ListOfMovies = vm.ListOfMovies;
 
             //lisa filmid nimekirja, olemasolevate id-de põhiselt
 
@@ -78,6 +94,7 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
                     .ToList().First();
                 listofmoviestoadd.Add(thismovie);
             }
+            newListDto.ListOfMovies = listofmoviestoadd;
 
           /*List<Guid> convertedIDs = new List<Guid>();
             if (newListDto.ListOfMovies != null)
@@ -85,7 +102,7 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
                 convertedIDs = MovieToId(newListDto.ListOfMovies);
             }
           */
-            var newList = await _favoriteListsServices.Create (newListDto /*, convertedIDs*/);
+            var newList = await _favoriteListsServices.Create(newListDto /*, convertedIDs*/);
             if (newList != null) 
             {
                 return BadRequest();
@@ -100,11 +117,21 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
             {  return BadRequest(); }
             //TODO: reutrn corresponding errorviews. id not found for list, and user login error for userid
 
+            var images = _context.FilesToDatabase
+                .Where(i => i.ListID == id)
+                .Select(si => new FavoriteListsIndexImageViewModel
+                {
+                    ImageID = si.ImageID,
+                    ListID = si.ListID,
+                    ImageData = si.ImageData,
+                    ImageTitle = si.ImageTitle,
+                    Image = string.Format("data:image/gif;base64,{0}", Convert.ToBase64String(si.ImageData)),
+                });
             var thisList = _context.FavoriteLists
                 .Where(tl => tl.FavoriteListID == id && tl.ListBelongsToUser == thisuserid.ToString())
                 .Select(
-                stl => new FavoriteListUserDetailsViewModel
-                {
+                stl => new FavoriteListUserDetailsViewModel 
+                { 
                     FavoriteListID = stl.FavoriteListID,
                     ListBelongsToUser = stl.ListBelongsToUser,
                     IsMovieOrActor = stl.IsMovieOrActor,
@@ -112,22 +139,25 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
                     ListDecription = stl.ListDescription,
                     IsPrivate = stl.IsPrivate,
                     ListOfMovies = stl.ListOfMovies,
-                    IsReported = stl.IsReported,
-                    Image = _context.FilesToDatabase
-                    .Where(i => i.ListID == stl.FavoriteListID)
-                    .Select(si => new FavoriteListsIndexImageViewModel
-                    {
-                        ImageID = si.ImageID,
-                        ListID = si.ListID,
-                        ImageData = si.ImageData,
-                        ImageTitle = si.ImageTitle,
-                        Image = string.Format("data:image/gif;based,{0}", Convert.ToBase64String(si.ImageData)),
-                    }).ToList().First()
+                    //Image = _context.FilesToDatabase
+                    //.Where(i => i.ListID == stl.FavoriteListID)
+                    //.Select(si => new FavoriteListIndexImageViewModel
+                    //{
+                    //    ImageID = si.ImageID,
+                    //    ListID = si.ListID,
+                    //    ImageTitle = si.ImageTitle,
+                    //    Image = string.Format("data:image/gif;based64,{0}", Convert.ToBase64String(si.ImageData))
+                    //}).ToList()
+                    //Image = (List<FavortieListIndexImageViewModel>)images
                 }).First();
-            if(thisList == null)
+            //if (!ModelState.IsValid)
+            //{
+            //    return NotFound();
+            //}
+
+            if (thisList == null)
             { return NotFound(); }
-            //add viewdata attribute here later, to discern user and admin
-            return View("Details", thisList.First());
+            return View("Details", thisList);
         }
 
         [HttpPost]

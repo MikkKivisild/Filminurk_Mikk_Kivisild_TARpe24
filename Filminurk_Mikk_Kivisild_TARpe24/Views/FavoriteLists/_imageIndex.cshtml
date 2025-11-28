@@ -1,0 +1,15 @@
+﻿@model Filminurk_Mikk_Kivisild_TARpe24.Models.FavoriteLists.FavoriteListsIndexImageViewModel
+<div>
+	@if (!Model.Image.Any() || Model == null)
+	{
+		<p>No Images womp womp</p>
+	}
+</div>
+@if (Model.ImageTitle == "Poster")
+{
+	<img class="card-img-top" src="@Model.Image" asp-append-version="true"/>
+}
+else
+{
+	<img width="128" src="~/lib/defaultassets/image/noposter.png"/>
+}

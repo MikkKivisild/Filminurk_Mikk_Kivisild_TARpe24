@@ -1,0 +1,87 @@
+﻿@model IEnumerable<Filminurk_Mikk_Kivisild_TARpe24.Models.FavoriteLists.FavoriteListsIndexViewModel>
+
+@{
+	int rowNumber = 1;
+	int currentRow = 1;
+	int cirrentTitle = 1;
+	int titlesInRow = 1;
+}
+<div>
+	<a asp-action="Create" asp-controller="FavoriteLists" class="btn btn-primary">Make a new favortie list</a>
+	<a asp-action="Index" asp-controller="Home" class="btn btn-primary">Main Page</a>
+</div>
+<div>
+	<from method="post">
+		<table class="table">
+			<thead>
+				@if (!Model.Any())
+				{
+					<tr>
+						<th scope="col" colspan="2">
+							<span>No favorite lists</span>
+						</th>
+					</tr>
+				}
+				else
+				{
+					<tr>
+						<th scope="col" colspan="2">
+							<span>Your Lists</span>
+						</th>
+					</tr>
+				}
+			</thead>
+			<tbody>
+				@if(!Model.Any())
+				{
+					<table>
+						<tr>
+							<td colspan="2">Sorry, no list</td>
+						</tr>
+						<tr>
+							<td><img width="128" src="~/lib/defaultassets/image/noposter.png"/></td>
+						</tr>
+					</table>
+				}
+				else
+				{
+					@foreach (var list in Model)
+					{
+						<table>
+							<tr>
+								<td colspan="2">
+									<a asp-action="UserDetails" asp-controller="FavoriteLists" asp-route-id="@list.FavoriteListID" asp-route-thisuserid="@list.ListBelongsToUser">@list.ListName</a>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									@foreach (var image in list.Image)
+									{
+										<partial name="_ImageIndex" model="image"/>
+									}
+									<img width="128" src="~/lib/defaultassets/image/noposter.png" />
+								</td>
+								<td>@list.ListDescription</td>
+							</tr>
+						</table>
+					}
+					rowNumber++;
+				}
+			</tbody>
+		</table>
+	</from>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

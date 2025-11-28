@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Core.Domain;
+using Microsoft.AspNetCore.Http;
 
 namespace Core.Dto
 {
@@ -20,10 +21,12 @@ namespace Core.Dto
         public List<Movie>? ListOfMovies { get; set; }
         //public List<Actor>? ListOfActors { get; set; }
 
-        /*for DB*/
+
+        public List<IFormFile> Files { get; set; }
+        public IEnumerable<FileToDatabaseDTO> Image { get; set; } =new List<FileToDatabaseDTO>();
         public DateTime ListCreatedAt { get; set; }
-        public DateTime ListModifiedAt { get; set; }
-        public DateTime ListDeletedAt { get; set; }
-        public bool IsReported { get; set; } = false;
+        public DateTime? ListModifiedAt { get; set; }
+        public DateTime? ListDeletedAt { get; set; }
+        public bool IsReported { get; set; } =false;
     }
 }

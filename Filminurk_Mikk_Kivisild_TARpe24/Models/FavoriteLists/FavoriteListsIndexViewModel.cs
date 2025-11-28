@@ -8,7 +8,7 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Models.FavoriteLists
         public string ListBelongsToUser { get; set; }
         public bool IsMovieOrActor { get; set; }
         public string ListName { get; set; }
-        public string ListOfDescription { get; set; }
+        public string? ListDescription { get; set; }
 
         //public List<Movie> ListOfMovies { get; set; }
         //public List<Actor>? ListOfActors { get; set; }
@@ -16,6 +16,7 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Models.FavoriteLists
         public DateTime? ListCreatedAt { get; set; }
         public DateTime? ListModifiedAt { get; set; }
         public DateTime? ListDeletedAt { get; set; }
+        public bool? IsReported { get; set; } = false;
 
         public FavoriteListsIndexImageViewModel Image { get; set; } = new FavoriteListsIndexImageViewModel();
     }
