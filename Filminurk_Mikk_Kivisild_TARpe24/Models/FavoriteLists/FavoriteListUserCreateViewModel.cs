@@ -19,6 +19,6 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Models.FavoriteLists
 
         public bool? IsReported { get; set; } = false;
 
-        public FavoriteListsIndexImageViewModel Image { get; set; } = new FavoriteListsIndexImageViewModel();
+        public List<FavoriteListsIndexImageViewModel> Image { get; set; } = new List<FavoriteListsIndexImageViewModel>();
     }
 }

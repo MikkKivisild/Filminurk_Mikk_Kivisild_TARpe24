@@ -10,10 +10,11 @@
 	}
 	<table>
 		<tr>@Model.ListName</tr>
-		<tr><partial name="_ImageIndex" model="@Model.Image"></partial></tr>
+		<tr>@*<partial name="_ImageIndex" model="@Model.Image"></partial>*@</tr>
 	</table>
 </div>
 <div>
+	<form method="post">
 	<table class="table">
 	@foreach(var movie in Model.ListOfMovies)
 	{
@@ -38,27 +39,29 @@
 		</tr>
 	}
 	</table>
+
 	<div>
-		<input asp-action="UserDelete" 
-		asp-controller="FavoriteListsController" 
-		asp-route-id="@Model.FavoriteListID" 
+		<input asp-action="UserDelete"
+				   asp-controller="FavoriteLists"
+				   asp-route-id="@Model.FavoriteListID" 
 		type="submit" class="btn btn-danger" 
 		value="Delete List" />		
 		
 		<input asp-action="UserTogglePrivacy" 
-		asp-controller="FavoriteListsController" 
+		asp-controller="FavoriteLists" 
 		asp-route-id="@Model.FavoriteListID" 
 		type="submit" class="btn btn-warning" 
 		value="Privte List" />		
 		
-		<input asp-action="UserEditList" 
-		asp-controller="FavoriteListsController" 
-		asp-route-id="@Model.FavoriteListID" 
+		<input asp-action="UserEditList"
+				   asp-controller="FavoriteLists"
+				   asp-route-id="@Model.FavoriteListID" 
 		type="submit" class="btn btn-success" 
 		value="Edit List" />	
-		<a asp-action="Index" 
-		asp-controller="FavoriteListsController"
+		<a asp-action="Index"
+			   asp-controller="FavoriteLists"
 		   class="btn btn-light">Back to index</a>
 
 	</div>
+	</form>
 </div>

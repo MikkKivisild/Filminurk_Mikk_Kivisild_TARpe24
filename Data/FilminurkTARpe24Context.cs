@@ -16,6 +16,6 @@ namespace Data
         public DbSet<UserComment> UserComments { get; set; }
         public DbSet<Actor> Actors { get; set; }
         public DbSet<FavoriteList> FavoriteLists { get; set; }
-        public DbSet<FavoriteList> FilesToDatabase { get; set; }
+        public DbSet<FileToDatabase> FilesToDatabase { get; set; }
     }
 }

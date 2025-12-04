@@ -1,0 +1,24 @@
+﻿@model Filminurk_Mikk_Kivisild_TARpe24.Models.Emails.EmailViewModel
+<div>
+	<form method="post" encrype="multipart/form-data">
+		<div class="form-group row">
+			<label asp-for="SendToThisAddress" class="col-sm-2 col-form-label"></label>
+			<div class="col-sm-5">
+				<input asp-for="SendToThisAddress" class="form-control"/>
+			</div>
+		</div>
+		<div class="form-group row">
+			<label asp-for="EmailSubject" class="col-sm-2 col-form-label"></label>
+			<div class="col-sm-5">
+				<input asp-for="EmailSubject" class="form-control"/>
+			</div>
+		</div>	
+		<div class="form-group row">
+			<label asp-for="EmailContent" class="col-sm-2 col-form-label"></label>
+			<div class="col-sm-5">
+				<input asp-for="EmailContent" class="form-control"/>
+			</div>
+		</div>	
+		<input asp-action="sendEmail" asp-controller="Emails" type="submit" class="btn btn-primary" value="Send email"/>
+	</form>
+</div>

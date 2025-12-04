@@ -43,10 +43,11 @@
 						</tr>
 					</table>
 				}
-				else
-				{
+				else{
 					@foreach (var list in Model)
 					{
+						if(list.ListDeletedAt == null)
+						{
 						<table>
 							<tr>
 								<td colspan="2">
@@ -64,6 +65,7 @@
 								<td>@list.ListDescription</td>
 							</tr>
 						</table>
+						}
 					}
 					rowNumber++;
 				}

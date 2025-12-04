@@ -24,6 +24,7 @@ namespace ApplicationServices.Services
         public async Task<FavoriteList> DetailsAsync(Guid id)
         {
             var result = await _context.FavoriteLists
+                .AsNoTracking()
                 .FirstOrDefaultAsync(x => x.FavoriteListID == id);
             return result;
         }
@@ -51,15 +52,34 @@ namespace ApplicationServices.Services
 
         }
 
-        public async Task<FavoriteList> Update(FavoriteListDTO dto)
+        public async Task<FavoriteList> Update(FavoriteListDTO updatedList, string typeOfMethod)
         {
-            FavoriteList newlist = new FavoriteList();
+            
+            FavoriteList updatedListInDB = new FavoriteList();
 
-
-
-            await _context.AddAsync(newlist);
+            updatedListInDB.FavoriteListID = updatedListInDB.FavoriteListID;
+            updatedListInDB.ListBelongsToUser = updatedListInDB.ListBelongsToUser;
+            updatedListInDB.IsMovieOrActor = updatedListInDB.IsMovieOrActor;
+            updatedListInDB.ListName = updatedListInDB.ListName;
+            updatedListInDB.ListDescription = updatedListInDB.ListDescription;
+            updatedListInDB.IsPrivate = updatedListInDB.IsPrivate;
+            updatedListInDB.ListOfMovies = updatedListInDB.ListOfMovies;
+            updatedListInDB.ListCreatedAt = updatedListInDB.ListCreatedAt;
+            updatedListInDB.ListDeletedAt = updatedListInDB.ListDeletedAt;
+            updatedListInDB.ListModifiedAt = updatedListInDB.ListModifiedAt;
+            if (typeOfMethod == "Delete")
+            {
+                _context.FavoriteLists.Attach(updatedListInDB);
+                _context.Entry(updatedListInDB).Property(l => l.ListDeletedAt).IsModified=true;
+            }
+            else if(typeOfMethod == "Private")
+            {
+                _context.FavoriteLists.Attach(updatedListInDB);
+                _context.Entry(updatedListInDB).Property(l => l.IsPrivate).IsModified = true;
+            }
+            _context.Entry(updatedListInDB).Property(l => l.ListModifiedAt).IsModified = true;
             await _context.SaveChangesAsync();
-            return newlist;
+            return updatedListInDB;
         }
     }
 }
