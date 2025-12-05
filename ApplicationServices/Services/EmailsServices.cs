@@ -8,6 +8,8 @@ using Core.ServiceInterface;
 using MailKit.Net.Smtp;
 using Microsoft.Extensions.Configuration;
 using MimeKit;
+using Data;
+
 
 namespace ApplicationServices.Services
 {
@@ -21,9 +23,9 @@ namespace ApplicationServices.Services
         public void SendEmail (EmailDTO dto)
         {
             var email = new MimeMessage();
-            _configuration.GetSection("EmailUserName").Value = "paatmakaron7";
-            _configuration.GetSection("EmailHost").Value = "smtp.gmail.com";
-            _configuration.GetSection("EmailPassword").Value = "bxld tked alpt yjnc";
+            _configuration.GetSection("EmailUserName").Value = Enviroment.gmailusername;
+            _configuration.GetSection("EmailHost").Value = Enviroment.smtaddress;
+            _configuration.GetSection("EmailPassword").Value = Enviroment.gmailapppassword;
 
             email.From.Add(MailboxAddress.Parse(_configuration.GetSection("EmailUserName").Value));
             email.To.Add(MailboxAddress.Parse(dto.SendToThisAddress));
