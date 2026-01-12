@@ -11,5 +11,7 @@ namespace Data
         public static string smtaddress = "smtp.gmai.com";
         public static string gmailapppassword = "bxld tked alpt yjnc";
         public static string gmailusername = "paatmakaron7";
+
+        public static string accuweatherkey = "";
     }
 }
