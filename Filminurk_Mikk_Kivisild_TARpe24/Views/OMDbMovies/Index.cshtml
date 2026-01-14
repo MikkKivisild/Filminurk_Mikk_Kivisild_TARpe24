@@ -1,0 +1,21 @@
+﻿@model Filminurk_Mikk_Kivisild_TARpe24.Models.OMDbMovies.OMDbMovieViewModel
+
+<h1>Filmi otsing</h1>
+
+<div class="container">
+	<form method="post">
+		<div class="container">
+			<div class="form-group col-md-offset-3 col-md-5">
+				<h2>Sisesta film mida otsid:</h2>
+				<label asp-for="Title" style="font:Arial"></label>
+				<input asp-for="Title" class="form-control" />
+				<span asp-validation-for="Title" class="text-danger"></span>
+			</div>
+		</div>
+		<div class="container">
+			<div class="form-group col-md-offset-3 col-md-5">
+				<button asp-controller="OMDbMovie" asp-action="FindMovie" class="btn btn-primary">Otsi</button>
+			</div>
+		</div>
+	</form>
+</div>

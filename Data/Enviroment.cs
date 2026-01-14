@@ -13,5 +13,6 @@ namespace Data
         public static string gmailusername = "paatmakaron7";
 
         public static string accuweatherkey = "";
+        public static string omdbapikey = "";
     }
 }
