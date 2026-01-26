@@ -26,16 +26,17 @@ namespace ApplicationServices.Services
         public async Task<Actor> Create(ActorsDTO dto)
         {
             Actor actor = new Actor();
-            actor.ActorID = Guid.NewGuid();
-            actor.FirstName = dto.FirstName;
-            actor.LastName = dto.LastName;
-            actor.NickName = dto.NickName;
-            actor.FirstActed = (DateOnly)dto.FirstActed;
-            actor.Age = (int)dto.Age;
-            actor.Gender = (Core.Domain.Gender)dto.Gender;
-            actor.EntryCreatedAt = DateTime.Now;
-            actor.EntryModifiedAt = DateTime.Now;
-
+            {
+                actor.ActorID = Guid.NewGuid();
+                actor.FirstName = dto.FirstName;
+                actor.LastName = dto.LastName;
+                actor.NickName = dto.NickName;
+                actor.FirstActed = (DateOnly)dto.FirstActed;
+                actor.Age = (int)dto.Age;
+                actor.Gender = (Core.Domain.Gender)dto.Gender;
+                actor.EntryCreatedAt = DateTime.Now;
+                actor.EntryModifiedAt = DateTime.Now;
+            };
             await _context.AddAsync(actor);
             await _context.SaveChangesAsync();
 
@@ -49,7 +50,8 @@ namespace ApplicationServices.Services
         public async Task<Actor> Update(ActorsDTO dto)
         {
             Actor actor = new Actor();
-            actor.ActorID = Guid.NewGuid();
+
+            actor.ActorID = (Guid)dto.ActorID;
             actor.FirstName = dto.FirstName;
             actor.LastName = dto.LastName;
             actor.NickName = dto.NickName;
@@ -59,7 +61,7 @@ namespace ApplicationServices.Services
             actor.EntryCreatedAt = dto.EntryCreatedAt;
             actor.EntryModifiedAt = DateTime.Now;
 
-            await _context.AddAsync(actor);
+            _context.Actors.Update(actor);
             await _context.SaveChangesAsync();
 
             return actor;

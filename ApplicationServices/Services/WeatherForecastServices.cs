@@ -59,8 +59,8 @@ namespace ApplicationServices.Services
 
             using (var clientWeather = new HttpClient())
             {
-            var httpResponseWeather = clientWeather.GetAsync(weatherResponse).GetAwaiter().GetResult;
-            string jsonWeather = await httpResponseWeather.Content.ReadAsStringAsync();
+            var httpResponseWeather = clientWeather.GetAsync(weatherResponse).GetAwaiter().GetResult();
+                string jsonWeather = await httpResponseWeather.Content.ReadAsStringAsync();
 
              AccuLocationRootDTO weatherRootDTO = JsonSerializer.Deserialize<AccuLocationRootDTO>(jsonWeather);
 
