@@ -15,11 +15,9 @@ namespace ApplicationServices.Services
     public class ActorsServices : IActorServices
     {
         private readonly FilminurkTARpe24Context _context;
-        private readonly IActorServices _actorServices;
-        public ActorsServices(FilminurkTARpe24Context context, IActorServices actorServices) 
+        public ActorsServices(FilminurkTARpe24Context context) 
         {
             _context = context;
-            _actorServices = actorServices;
         }
 
 
@@ -70,7 +68,10 @@ namespace ApplicationServices.Services
         {
             var actor = await _context.Actors
                 .FirstOrDefaultAsync(x => x.ActorID == id);
-
+            if(actor == null)
+            {
+                return null;
+            }
             _context.Actors.Remove(actor);
             await _context.SaveChangesAsync();
 

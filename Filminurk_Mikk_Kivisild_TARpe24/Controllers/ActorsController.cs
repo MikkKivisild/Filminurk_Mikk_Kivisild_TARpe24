@@ -27,7 +27,7 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
                 LastName = vm.LastName,
                 NickName = vm.NickName,
                 PortraitID = vm.PortraitID,
-                FirstActed = vm.FirstActed,
+                FirstActed = (DateOnly)vm.FirstActed,
                 Age = vm.Age,
                 Gender = (Models.Actors.Gender?)vm.Gender
             });
@@ -46,7 +46,7 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
             {
                 var dto = new ActorsDTO()
                 {
-                    ActorID = (Guid)vm.ActorID,
+                    ActorID = vm.ActorID ?? Guid.NewGuid(),
                     FirstName = vm.FirstName,
                     LastName = vm.LastName,
                     NickName = vm.NickName,
@@ -83,12 +83,12 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
             vm.FirstName = actor.FirstName;
             vm.LastName = actor.LastName;
             vm.NickName = actor.NickName;
-            vm.PortraitID = vm.PortraitID;
-            vm.FirstActed = vm.FirstActed;
-            vm.Age = vm.Age;
-            vm.Gender = (Models.Actors.Gender?)vm.Gender;
-            vm.EntryCreatedAt = vm.EntryCreatedAt;
-            vm.EntryModifiedAt = vm.EntryModifiedAt;
+            vm.PortraitID = actor.PortraitID;
+            vm.FirstActed = (DateOnly)actor.FirstActed;
+            vm.Age = actor.Age;
+            vm.Gender = (Models.Actors.Gender?)actor.Gender;
+            vm.EntryCreatedAt = actor.EntryCreatedAt;
+            vm.EntryModifiedAt = actor.EntryModifiedAt;
 
             return View(vm);
         }
@@ -104,12 +104,12 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
             vm.FirstName = actor.FirstName;
             vm.LastName = actor.LastName;
             vm.NickName = actor.NickName;
-            vm.PortraitID = vm.PortraitID;
-            vm.FirstActed = vm.FirstActed;
-            vm.Age = vm.Age;
-            vm.Gender = (Models.Actors.Gender?)vm.Gender;
-            vm.EntryCreatedAt = vm.EntryCreatedAt;
-            vm.EntryModifiedAt = vm.EntryModifiedAt;
+            vm.PortraitID = actor.PortraitID;
+            vm.FirstActed = (DateOnly)actor.FirstActed;
+            vm.Age = actor.Age;
+            vm.Gender = (Models.Actors.Gender?)actor.Gender;
+            vm.EntryCreatedAt = actor.EntryCreatedAt;
+            vm.EntryModifiedAt = actor.EntryModifiedAt;
 
 
             return View("CreateUpdate", vm);
@@ -150,7 +150,7 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
             vm.LastName = actor.LastName;
             vm.NickName = actor.NickName;
             vm.PortraitID = actor.PortraitID;
-            vm.FirstActed = actor.FirstActed;
+            vm.FirstActed = (DateOnly)actor.FirstActed;
             vm.Age = actor.Age;
             vm.Gender = (Models.Actors.Gender?)actor.Gender;
             vm.EntryCreatedAt = actor.EntryCreatedAt;
@@ -159,7 +159,7 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
 
             return View(vm);
         }
-        [HttpPost]
+        [HttpPost, ActionName("Delete")]
         public async Task<IActionResult> DeleteConfirmation(Guid id)
         {
             var actor = await _actorServices.Delete(id);
