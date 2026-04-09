@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Core.Domain;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace Data
@@ -17,5 +18,6 @@ namespace Data
         public DbSet<Actor> Actors { get; set; }
         public DbSet<FavoriteList> FavoriteLists { get; set; }
         public DbSet<FileToDatabase> FilesToDatabase { get; set; }
-    }
+		public DbSet<IdentityRole> IdentityRoles { get; set; }
+	}
 }

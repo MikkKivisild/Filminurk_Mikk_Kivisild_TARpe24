@@ -13,7 +13,7 @@ using Data;
 
 namespace ApplicationServices.Services
 {
-    public class EmailsServices : IEmailServices
+    public class EmailsServices : IEmailsServices
     {
         private readonly IConfiguration _configuration;
         public EmailsServices(IConfiguration configuration)

@@ -7,10 +7,8 @@ using Core.Dto;
 
 namespace Core.ServiceInterface
 {
-    public interface IEmailServices
+    public interface IEmailsServices
     {
         void SendEmail(EmailDTO dto);
-
-        //HW
     }
 }
