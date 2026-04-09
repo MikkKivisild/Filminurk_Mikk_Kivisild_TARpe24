@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -37,6 +38,30 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="UserComments" asp-action="Index">Comments</a>
                         </li>
+                    </ul>
+                    <ul>
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="FavouriteLists" asp-action="Index">Lemmikud nimekirjad</a>
+                            </li>
+                            <li class="nav-item">
+                                <form method="post" asp-controller="Accounts" asp-action="Logout">
+                                    <button type="submit" class="nav-item" btn btn-link style="width:auto; padding:0.8rem;">
+                                        Log out
+                                    </button>
+                                </form>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Accounts" asp-action="Register">Register</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Accounts" asp-action="Login">Login</a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>

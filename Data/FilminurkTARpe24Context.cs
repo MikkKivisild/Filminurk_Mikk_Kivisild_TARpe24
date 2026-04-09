@@ -19,5 +19,6 @@ namespace Data
         public DbSet<FavoriteList> FavoriteLists { get; set; }
         public DbSet<FileToDatabase> FilesToDatabase { get; set; }
 		public DbSet<IdentityRole> IdentityRoles { get; set; }
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 	}
 }
