@@ -9,7 +9,7 @@ namespace Data
     public class Enviroment
     {
         public static string smtaddress = "smtp.gmai.com";
-        public static string gmailapppassword = "bxld tked alpt yjnc";
+        public static string gmailapppassword = "vkuy sedp ehsc dnzo";
         public static string gmailusername = "paatmakaron7";
 
         public static string accuweatherkey = "";

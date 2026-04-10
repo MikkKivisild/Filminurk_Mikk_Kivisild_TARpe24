@@ -1,4 +1,5 @@
 ﻿using Core.Domain;
+using Core.Dto;
 using Core.ServiceInterface;
 using Data;
 using Filminurk_Mikk_Kivisild_TARpe24.Models.Accounts;
@@ -18,12 +19,14 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
         public AccountsController(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
-            FilminurkTARpe24Context context
+            FilminurkTARpe24Context context,
+            IEmailsServices emailsServices
             )
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _context = context;
+            _emailsServices = emailsServices;
         }
 
         [HttpGet]
@@ -209,9 +212,14 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
                     //HOMEWORK TASK: koosta email kasutajalt pärineva aadressile saatmiseks, kasutaja saab oma postkastist kätte emaili
                     //kinnituslingiga, mille jaoks kasutatakse tokenit. siin tuleb välja kutsuda vastav, uus, emaili saatmise meetod, mis saadab
                     //õige sisuga kirja
+                    var dto = new EmailDTO()
+                    {
+                        SendToThisAddress = model.Email,
+                        EmailSubject = "Email Confirmation",
+                        EmailContent = confirmationLink,
+                    };
+                    _emailsServices.SendEmail(dto);
                 }
-                //
-
                 return RedirectToAction("Index", "Home");
             }
             return BadRequest();
