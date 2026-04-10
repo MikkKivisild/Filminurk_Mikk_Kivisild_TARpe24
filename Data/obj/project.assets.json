@@ -109,6 +109,23 @@
           }
         }
       },
+      "Microsoft.AspNetCore.Identity.EntityFrameworkCore/8.0.20": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Relational": "8.0.20",
+          "Microsoft.Extensions.Identity.Stores": "8.0.20"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.Bcl.AsyncInterfaces/6.0.0": {
         "type": "package",
         "compile": {
@@ -1703,6 +1720,7 @@
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
           "Microsoft.AspNetCore.Http.Features": "5.0.17",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.20",
           "Microsoft.Extensions.Identity.Stores": "10.0.5"
         },
         "compile": {
@@ -1826,6 +1844,21 @@
         "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.xml",
         "microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
         "microsoft.aspnetcore.http.features.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Identity.EntityFrameworkCore/8.0.20": {
+      "sha512": "Fr4JDsKzzfLyi3vwfVM/bSr4eGvKqbrKgCVEokWUAm62GN1OzJ0ZW0osYyK62S8YphBcwJ0f+wVUXuMh32+a+g==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.identity.entityframeworkcore/8.0.20",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net8.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll",
+        "lib/net8.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.xml",
+        "microsoft.aspnetcore.identity.entityframeworkcore.8.0.20.nupkg.sha512",
+        "microsoft.aspnetcore.identity.entityframeworkcore.nuspec"
       ]
     },
     "Microsoft.Bcl.AsyncInterfaces/6.0.0": {
@@ -4555,29 +4588,30 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "Core >= 1.0.0",
+      "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 8.0.20",
       "Microsoft.EntityFrameworkCore >= 8.0.20",
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.20",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.20"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mikkm\\.nuget\\packages\\": {},
+    "C:\\Users\\opilane\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mikkm\\source\\repos\\Filminurk_Mikk_Kivisild_TARpe24\\Data\\Data.csproj",
+      "projectUniqueName": "C:\\Users\\opilane\\source\\repos\\Filminurk_Mikk_Kivisild_TARpe24\\Data\\Data.csproj",
       "projectName": "Data",
-      "projectPath": "C:\\Users\\mikkm\\source\\repos\\Filminurk_Mikk_Kivisild_TARpe24\\Data\\Data.csproj",
-      "packagesPath": "C:\\Users\\mikkm\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mikkm\\Source\\Repos\\Filminurk_Mikk_Kivisild_TARpe24\\Data\\obj\\",
+      "projectPath": "C:\\Users\\opilane\\source\\repos\\Filminurk_Mikk_Kivisild_TARpe24\\Data\\Data.csproj",
+      "packagesPath": "C:\\Users\\opilane\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\opilane\\source\\repos\\Filminurk_Mikk_Kivisild_TARpe24\\Data\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\mikkm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\opilane\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -4593,8 +4627,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\mikkm\\source\\repos\\Filminurk_Mikk_Kivisild_TARpe24\\Core\\Core.csproj": {
-              "projectPath": "C:\\Users\\mikkm\\source\\repos\\Filminurk_Mikk_Kivisild_TARpe24\\Core\\Core.csproj"
+            "C:\\Users\\opilane\\source\\repos\\Filminurk_Mikk_Kivisild_TARpe24\\Core\\Core.csproj": {
+              "projectPath": "C:\\Users\\opilane\\source\\repos\\Filminurk_Mikk_Kivisild_TARpe24\\Core\\Core.csproj"
             }
           }
         }
@@ -4608,12 +4642,17 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "10.0.200"
     },
     "frameworks": {
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[8.0.20, )"
+          },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
             "version": "[8.0.20, )"
@@ -4645,7 +4684,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.410/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
