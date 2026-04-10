@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mikkm\\Source\\Repos\\Filminurk_Mikk_Kivisild_TARpe24\\Core\\Core.csproj": {}
+    "C:\\Users\\mikkm\\source\\repos\\Filminurk_Mikk_Kivisild_TARpe24\\Core\\Core.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mikkm\\Source\\Repos\\Filminurk_Mikk_Kivisild_TARpe24\\Core\\Core.csproj": {
+    "C:\\Users\\mikkm\\source\\repos\\Filminurk_Mikk_Kivisild_TARpe24\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mikkm\\Source\\Repos\\Filminurk_Mikk_Kivisild_TARpe24\\Core\\Core.csproj",
+        "projectUniqueName": "C:\\Users\\mikkm\\source\\repos\\Filminurk_Mikk_Kivisild_TARpe24\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "C:\\Users\\mikkm\\Source\\Repos\\Filminurk_Mikk_Kivisild_TARpe24\\Core\\Core.csproj",
+        "projectPath": "C:\\Users\\mikkm\\source\\repos\\Filminurk_Mikk_Kivisild_TARpe24\\Core\\Core.csproj",
         "packagesPath": "C:\\Users\\mikkm\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\mikkm\\Source\\Repos\\Filminurk_Mikk_Kivisild_TARpe24\\Core\\obj\\",
         "projectStyle": "PackageReference",

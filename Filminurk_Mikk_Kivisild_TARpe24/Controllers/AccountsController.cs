@@ -8,36 +8,36 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
 {
-	public class AccountsController : Controller
-	{
-		private readonly UserManager<ApplicationUser> _userManager;
-		private readonly SignInManager<ApplicationUser> _signInManager;
-		private readonly FilminurkTARpe24Context _context;
-		private readonly IEmailsServices _emailsServices;
+    public class AccountsController : Controller
+    {
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly FilminurkTARpe24Context _context;
+        private readonly IEmailsServices _emailsServices; //HOMEWORK LOCATION
 
-		public AccountsController(
-			UserManager<ApplicationUser> userManager,
-			SignInManager<ApplicationUser> signInManager,
-			FilminurkTARpe24Context context,
-			IEmailsServices emailsServices
+        public AccountsController(
+            UserManager<ApplicationUser> userManager,
+            SignInManager<ApplicationUser> signInManager,
+            FilminurkTARpe24Context context
             )
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _context = context;
-            _emailsServices = emailsServices;
         }
+
         [HttpGet]
         public async Task<IActionResult> AddPassword()
         {
             var user = await _userManager.GetUserAsync(User);
-            var userHasPasswrod = await _userManager.HasPasswordAsync(user);
-            if (userHasPasswrod)
+            var userHasPassword = await _userManager.HasPasswordAsync(user);
+            if (userHasPassword)
             {
                 RedirectToAction("ChangePassword");
             }
             return View();
         }
+
         [HttpPost]
         public async Task<IActionResult> AddPassword(AddPasswordViewModel model)
         {
@@ -58,6 +58,7 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
             }
             return View(model);
         }
+
         [HttpGet]
         public IActionResult ChangePassword()
         {
@@ -87,17 +88,19 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
             }
             return View(model);
         }
+
         [HttpGet]
         [AllowAnonymous]
         public IActionResult ForgotPassword()
         {
             return View();
         }
+
         [HttpPost]
         [AllowAnonymous]
         public async Task<IActionResult> ForgotPassword(ForgotPasswordViewModel model)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 var user = await _userManager.FindByEmailAsync(model.Email);
                 if (user != null && await _userManager.IsEmailConfirmedAsync(user))
@@ -106,9 +109,11 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
                     var passwordResetLink = Url.Action("ResetPassword", "Accounts", new { email = model.Email, token = token }, Request.Scheme);
                     return View("ForgotPasswordConfirmation");
                 }
+                return View("ForgotPasswordConfirmation");
             }
             return View(model);
         }
+
         [HttpGet]
         [AllowAnonymous]
         public async Task<IActionResult> ResetPassword()
@@ -117,9 +122,9 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
             var token = await _userManager.GeneratePasswordResetTokenAsync(user);
             if (token == null || user.Email == null)
             {
-                ModelState.AddModelError("", "Invalid password reset token");
+                ModelState.AddModelError("", "Invalid password reset token.");
             }
-            var model = new ResetPasswordViewModel()
+            var model = new ResetPasswordViewModel
             {
                 Token = token,
                 Email = user.Email
@@ -130,35 +135,40 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> ResetPassword(ResetPasswordViewModel model)
         {
-            if (ModelState.IsValid)
-            {
-                var user = await _userManager.FindByEmailAsync(model.Email);
-                if (user != null)
+            if (ModelState.IsValid) // kontrollitakse kas modelstate on õige, ehk kõik andmed on olemas
+            { // kui on, siis teostatakse ülejäänud meetodi sisu
+                var user = await _userManager.FindByEmailAsync(model.Email); //otsitakse kasutaja emaili abil üles
+                if (user != null) //ülejäänud tegevus toimub siis kui kasutaja EI ole tühi, ehk leitakse üles
                 {
                     var result = await _userManager.ResetPasswordAsync(user, model.Token, model.Password);
-                    if (result.Succeeded)
+                    //oodatakse kuni usermanager resetib kasutaja parooli
+                    if (result.Succeeded) //kui resettimine on edukas, siis:
                     {
-                        if (await _userManager.IsLockedOutAsync(user))
+                        if (await _userManager.IsLockedOutAsync(user)) //kontrollitakse kas seesama kasutaja on ennast katsetega lockouti läinud
                         {
                             await _userManager.SetLockoutEndDateAsync(user, DateTimeOffset.UtcNow);
+                            //ja võetakse lockout maha
                         }
-                        await _signInManager.SignOutAsync();
-                        await _userManager.DeleteAsync(user);
+                        await _signInManager.SignOutAsync(); //signinmanager logib kasutaja välja
+                        await _userManager.DeleteAsync(user); //useremanageris kustutatakse kasutaja
                         return RedirectToAction("ResetPasswordConfirmation", "Accounts");
+                        //tagastatakse password reset kinnitusvaatesse
                     }
-                    foreach (var error in result.Errors)
+                    foreach (var error in result.Errors)  //aga kui resettimine ei olnud edukas, logitakse kõik errorid välja
                     {
                         ModelState.AddModelError("", error.Description);
+                        //ja lisatakse modelstatele juurde
                     }
                     return RedirectToAction("ResetPasswordConfirmation", "Accounts");
+                    //ning tagastatakse password reset kinnitusvaatesse
                 }
-                await _userManager.DeleteAsync(user);
+                await _userManager.DeleteAsync(user); //kui kasutaja ON tühi, ehk ei leita üles, taGASTATAKSE kasutaja password reset kinnitusvaatesse
                 return RedirectToAction("ResetPasswordConfirmation", "Accounts");
-
             }
             return RedirectToAction("ResetPasswordConfirmation", "Accounts");
-
+            //kui modelstate ei ole õige, mingi väli on puudu, siis tagastatakse kasutaja password reset kinnitusvaatesse
         }
+
         [HttpGet]
         [AllowAnonymous]
         public IActionResult ResetPasswordConfirmation()
@@ -170,36 +180,43 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
         {
             return View();
         }
+
         [HttpGet]
-		public IActionResult Register()
-		{
-			return View();
-		}
-		[HttpPost]
-		[AllowAnonymous]
-		public async Task<IActionResult> Register(RegisterViewModel model)
-		{
-			if (ModelState.IsValid)
-			{
-				var user = new ApplicationUser()
-				{
-					UserName = model.DisplayName,
-					Email = model.Email,
-					ProfileType = model.ProfileType,
-				};
-				var result = await _userManager.CreateAsync(user, model.Password);
-				if (result.Succeeded)
-				{
-					var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+        public IActionResult Register()
+        {
+            return View();
+        }
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> Register(RegisterViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = new ApplicationUser()
+                {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    ProfileType = model.ProfileType,
+                    DisplayName = model.DisplayName,
+                    AvatarImageID = Guid.NewGuid().ToString(),
+                };
+                var result = await _userManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
+                {
+                    var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
 
-					var confirmationLink = Url.Action("ConfirmEmail", "Accounts", new { userID = user.Id, token = token }, Request.Scheme);
-					
-				}
+                    var confirmationLink = Url.Action("ConfirmEmail", "Accounts", new { userID = user.Id, token = token }, Request.Scheme);
+                    //HOMEWORK TASK: koosta email kasutajalt pärineva aadressile saatmiseks, kasutaja saab oma postkastist kätte emaili
+                    //kinnituslingiga, mille jaoks kasutatakse tokenit. siin tuleb välja kutsuda vastav, uus, emaili saatmise meetod, mis saadab
+                    //õige sisuga kirja
+                }
+                //
 
-				return RedirectToAction("Index", "Home");
-			}
-			return BadRequest();
-		}
+                return RedirectToAction("Index", "Home");
+            }
+            return BadRequest();
+        }
+
         [HttpGet]
         [AllowAnonymous]
         public async Task<IActionResult> ConfirmEmail(string userId, string token)
@@ -220,6 +237,7 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
             }
             return BadRequest();
         }
+
         [HttpGet]
         [AllowAnonymous]
         public async Task<IActionResult> Login(string? returnURL)
@@ -261,13 +279,13 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
                 if (result.IsNotAllowed)
                 {
                     ModelState.AddModelError("", "Sisselogimine ebaõnnestus, kasutaja keelatud");
-
                 }
                 if (result.IsLockedOut)
+
                 {
                     return View("AccountLocked");
                 }
-                ModelState.AddModelError("", "Sisselogimine ebaõnnestus, võta ühendust administraatoriga");
+                ModelState.AddModelError("", "Sisselogimine ebaõnnestus, kontakteeru administraatoriga");
             }
             return View(model);
         }
@@ -277,7 +295,5 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
-
-
     }
 }

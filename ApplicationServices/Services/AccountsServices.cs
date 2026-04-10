@@ -10,13 +10,13 @@ using System.Threading.Tasks;
 
 namespace ApplicationServices.Services
 {
-    public class AccountServices : IAccountsServices
+    public class AccountsServices : IAccountsServices
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IEmailsServices _emailsServices;
 
-        public AccountServices
+        public AccountsServices
             (
                 UserManager<ApplicationUser> userManager,
                 SignInManager<ApplicationUser> signInManager,
@@ -27,7 +27,6 @@ namespace ApplicationServices.Services
             _signInManager = signInManager;
             _emailsServices = emailsServices;
         }
-
         public async Task<ApplicationUser> Register(ApplicationUserDTO userDTO)
         {
             var user = new ApplicationUser
@@ -37,16 +36,15 @@ namespace ApplicationServices.Services
                 ProfileType = userDTO.ProfileType,
                 DisplayName = userDTO.DisplayName,
             };
-
             var result = await _userManager.CreateAsync(user, userDTO.Password);
-
             if (result.Succeeded)
             {
                 var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                // HOMEWORK LOCATION
             }
             return user;
         }
-
+        // HOMEWORK LOCATION    
         public async Task<ApplicationUser> Login(LoginDTO userDTO)
         {
             var user = await _userManager.FindByEmailAsync(userDTO.Email);

@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ApplicationServices
-build_property.ProjectDir = C:\Users\mikkm\Source\Repos\Filminurk_Mikk_Kivisild_TARpe24\ApplicationServices\
+build_property.ProjectDir = C:\Users\mikkm\source\repos\Filminurk_Mikk_Kivisild_TARpe24\ApplicationServices\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

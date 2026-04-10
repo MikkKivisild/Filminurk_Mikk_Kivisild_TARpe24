@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "q6vWkJpjFsf4tuaJtCMz06krAxUORprry6dRL6Lq/HVQ5P8ggED8SpoQNtlcvup9b6Bme1CYIATi1QaojhSHAg==",
+  "dgSpecHash": "ICDyVqiCWNDHnvooXFUmuB1+mUTugOZX/JgL4bSALuYzeSn+Q08uqvHQXSNieJtb0FgqG/YhcFXd+u2zTOVe5Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mikkm\\Source\\Repos\\Filminurk_Mikk_Kivisild_TARpe24\\Core\\Core.csproj",
+  "projectFilePath": "C:\\Users\\mikkm\\source\\repos\\Filminurk_Mikk_Kivisild_TARpe24\\Core\\Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mikkm\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\mikkm\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\10.0.5\\microsoft.aspnetcore.cryptography.internal.10.0.5.nupkg.sha512",
