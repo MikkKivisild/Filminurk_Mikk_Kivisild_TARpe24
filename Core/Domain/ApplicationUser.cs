@@ -15,7 +15,7 @@ namespace Core.Domain
 		public string DisplayName { get; set; }
 		public bool ProfileType { get; set; }
 
-		public string FavoriteColor { get; set; }
-		public int Age { get; set; }
+		public string? FavoriteColor { get; set; }
+		public int? Age { get; set; }
 	}
 }

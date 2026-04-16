@@ -22,7 +22,6 @@ builder.Services.AddDbContext<FilminurkTARpe24Context>(options => options.UseSql
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 {
     options.SignIn.RequireConfirmedAccount = true;
-    options.Password.RequiredLength = 8;
     options.Tokens.EmailConfirmationTokenProvider = "CustomEmailConfirmation";
     options.Lockout.MaxFailedAccessAttempts = 3;
     options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);

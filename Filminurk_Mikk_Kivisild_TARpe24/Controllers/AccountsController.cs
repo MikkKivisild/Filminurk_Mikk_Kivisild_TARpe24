@@ -199,7 +199,7 @@ namespace Filminurk_Mikk_Kivisild_TARpe24.Controllers
                 {
                     UserName = model.Email,
                     Email = model.Email,
-                    ProfileType = model.ProfileType,
+                    ProfileType = false,
                     DisplayName = model.DisplayName,
                     AvatarImageID = Guid.NewGuid().ToString(),
                 };
