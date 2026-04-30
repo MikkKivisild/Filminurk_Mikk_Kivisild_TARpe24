@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>SignalR Simple Chat</title>
+    <style>
+            .container {
+                background-color: mediumpurple;
+                border: thick solid #208080;
+                padding: 30px;
+                margin: 30px;
+            }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <input type="text" id="messageInput" />
+        <button id="sendButton">Send</button>
+        <ul id="discussion"></ul>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.0/signalr.min.js"></script>
+
+    <script>
+        const connection = new signalR.HubConnectionBuilder()
+        .withUrl("/chatHub")
+        .build();
+
+        connection.on("ReceiveMessage", function (name, message) {
+        const li = document.createElement("li");
+        li.innerHTML = `<strong>${name}</strong>: ${message}`;
+        document.getElementById("discussion").appendChild(li);
+        });
+
+        connection.start()
+        .then(() => console.log("Connected"))
+        .catch(err => console.error(err.toString()));
+
+        document.getElementById("sendButton").addEventListener("click", function () {
+        const message = document.getElementById("messageInput").value;
+
+        if (!message.trim()) return;
+
+        connection.invoke("SendMessage", message);
+        document.getElementById("messageInput").value = "";
+        });
+    </script>
+
+</body>
+</html>
